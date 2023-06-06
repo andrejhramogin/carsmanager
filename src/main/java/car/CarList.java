@@ -3,10 +3,8 @@ package car;
 import java.io.Serializable;
 import java.util.List;
 
-public class CarList implements Serializable {
-
+public class CarList {
     private List<Car> carList;
-    private static final long serialVersionUID = 1;
 
     public CarList(){};
 
