@@ -1,6 +1,5 @@
 package car;
 
-import java.io.Serializable;
 
 public class Car {
     private String brand;
@@ -50,5 +49,10 @@ public class Car {
         this.price = price;
     }
 
-
+    public String toString() {
+        return ("Brand: " + brand + ", " +
+                "Model: " + model + ", " +
+                "Year of manufacture: " + year + ", " +
+                "Price: " + price + ".");
+    }
 }

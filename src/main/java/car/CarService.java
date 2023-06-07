@@ -3,8 +3,7 @@ package car;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class carService {
-
+public class CarService {
     //сортировка по цене
     public static List<Car> sortPrice(List<Car> list) {
 
@@ -45,6 +44,7 @@ public class carService {
         return list;
     }
 
+    //максимальная цена
     public static double findMaxPrice(List<Car> list) {
         double max = 0;
         for (Car car : list) {
@@ -55,6 +55,7 @@ public class carService {
         return max;
     }
 
+    //минимальная цена
     public static double findMinPrice(List<Car> list) {
         double min = list.get(0).getPrice();
         for (Car car : list) {
@@ -66,16 +67,30 @@ public class carService {
     }
 
     //авто с самой большой ценой
-    public static List<Car> createCarListMaxPrice(List<Car> list, double maxPrice) {
+    public static List<Car> findCarMaxPrice(List<Car> list) {
+        double max = 0;
+        for (Car car : list) {
+            if (car.getPrice() > max) {
+                max = car.getPrice();
+            }
+        }
+        double finalMax = max;
         return list.stream()
-                .filter(i -> i.getPrice() == maxPrice)
+                .filter(i -> i.getPrice() == finalMax)
                 .collect(Collectors.toList());
     }
 
     //авто с минимальной ценой
-    public static List<Car> createCarListMinPrice(List<Car> list, double minPrice) {
+    public static List<Car> findCarMinPrice(List<Car> list) {
+        double min = list.get(0).getPrice();
+        for (Car car : list) {
+            if (car.getPrice() < min) {
+                min = car.getPrice();
+            }
+        }
+        double finalMin = min;
         return list.stream()
-                .filter(i -> i.getPrice() == minPrice)
+                .filter(i -> i.getPrice() == finalMin)
                 .collect(Collectors.toList());
     }
 
