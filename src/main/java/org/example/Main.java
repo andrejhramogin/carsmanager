@@ -1,9 +1,9 @@
 package org.example;
 
-import car.CarListCreate;
-import car.CarService;
-import method.PrintList;
-import method.json.JsonService;
+import org.example.service.CarListCreate;
+import org.example.service.CarService;
+import org.example.utils.PrintList;
+import org.example.utils.JsonService;
 
 import java.io.IOException;
 
@@ -13,13 +13,14 @@ public class Main {
         //самые дорогие машины
         System.out.println("Most expensive cars:");
         PrintList.printCarList(CarService.findCarMaxPrice(CarListCreate.createCarList()));
+        System.out.println();
 
         //самые дешевые машины
         System.out.println("Most cheapest cars:");
         PrintList.printCarList(CarService.findCarMinPrice(CarListCreate.createCarList()));
 
 //        JSON запись списка отсортированного по бренду
-        JsonService.jsonWriteCarList(CarService.createCarListByBrand(JsonService.jsonReadCarList("cars"),"toyota"), "toyota");
+        JsonService.jsonWriteCarList(CarService.createCarListByBrand(JsonService.jsonReadCarList("cars"), "toyota"), "toyota");
         System.out.println();
 //        Чтение из файла toyota.json
         System.out.println("Read List<Car> \"toyota\" from JSON file: ");

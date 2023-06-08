@@ -1,7 +1,7 @@
-package method;
+package org.example.utils;
 
-import car.Car;
-import car.CarList;
+import org.example.model.Car;
+import org.example.model.CarList;
 
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;

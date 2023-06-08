@@ -1,4 +1,6 @@
-package car;
+package org.example.service;
+
+import org.example.model.Car;
 
 import java.util.ArrayList;
 import java.util.Arrays;

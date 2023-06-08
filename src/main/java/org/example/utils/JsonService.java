@@ -1,6 +1,6 @@
-package method.json;
+package org.example.utils;
 
-import car.Car;
+import org.example.model.Car;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 

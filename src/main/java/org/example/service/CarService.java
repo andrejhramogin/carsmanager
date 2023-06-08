@@ -1,4 +1,6 @@
-package car;
+package org.example.service;
+
+import org.example.model.Car;
 
 import java.util.List;
 import java.util.stream.Collectors;

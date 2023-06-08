@@ -1,6 +1,6 @@
-package method;
+package org.example.utils;
 
-import car.Car;
+import org.example.model.Car;
 
 import java.util.List;
 
