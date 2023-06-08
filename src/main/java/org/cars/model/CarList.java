@@ -1,4 +1,4 @@
-package org.example.model;
+package org.cars.model;
 
 import java.util.List;
 

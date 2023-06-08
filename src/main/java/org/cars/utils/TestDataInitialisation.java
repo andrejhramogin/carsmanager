@@ -1,12 +1,12 @@
-package org.example.service;
+package org.cars.utils;
 
-import org.example.model.Car;
+import org.cars.model.Car;
 
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class CarListCreate {
+public class TestDataInitialisation {
 
     public static List<Car> createCarList() {
         return new ArrayList<>(Arrays.asList(

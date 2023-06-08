@@ -1,10 +1,10 @@
-package org.example.utils;
+package org.cars.utils;
 
-import org.example.model.Car;
+import org.cars.model.Car;
 
 import java.util.List;
 
-public class PrintList {
+public class PrintListUtils {
 
 
     public static void printCarList(List<Car> carList) {

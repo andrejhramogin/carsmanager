@@ -1,13 +1,13 @@
-package org.example.service;
+package org.cars.service;
 
-import org.example.model.Car;
+import org.cars.model.Car;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 public class CarService {
     //сортировка по цене
-    public static List<Car> sortPrice(List<Car> list) {
+    public List<Car> sortPrice(List<Car> list) {
 
         boolean isSorted = false;
 
@@ -27,7 +27,7 @@ public class CarService {
     }
 
     //сортировка по бренду
-    public static List<Car> sortBrand(List<Car>list){
+    public List<Car> sortBrand(List<Car>list){
 
         boolean isSorted = false;
 
@@ -47,7 +47,7 @@ public class CarService {
     }
 
     //максимальная цена
-    public static double findMaxPrice(List<Car> list) {
+    public double findMaxPrice(List<Car> list) {
         double max = 0;
         for (Car car : list) {
             if (car.getPrice() > max) {
@@ -58,7 +58,7 @@ public class CarService {
     }
 
     //минимальная цена
-    public static double findMinPrice(List<Car> list) {
+    public double findMinPrice(List<Car> list) {
         double min = list.get(0).getPrice();
         for (Car car : list) {
             if (car.getPrice() < min) {
@@ -69,7 +69,7 @@ public class CarService {
     }
 
     //авто с самой большой ценой
-    public static List<Car> findCarMaxPrice(List<Car> list) {
+    public List<Car> findCarMaxPrice(List<Car> list) {
         double max = 0;
         for (Car car : list) {
             if (car.getPrice() > max) {
@@ -83,7 +83,7 @@ public class CarService {
     }
 
     //авто с минимальной ценой
-    public static List<Car> findCarMinPrice(List<Car> list) {
+    public  List<Car> findCarMinPrice(List<Car> list) {
         double min = list.get(0).getPrice();
         for (Car car : list) {
             if (car.getPrice() < min) {
@@ -97,14 +97,14 @@ public class CarService {
     }
 
     //список по бренду
-    public static List<Car> createCarListByBrand(List<Car> list, String brand) {
+    public List<Car> createCarListByBrand(List<Car> list, String brand) {
         return list.stream()
                 .filter(i -> i.getBrand().equalsIgnoreCase(brand))
                 .collect(Collectors.toList());
     }
 
     //список по модели
-    public static List<Car> createCarListByModel(List<Car> list, String model) {
+    public List<Car> createCarListByModel(List<Car> list, String model) {
         return list.stream()
                 .filter(i -> i.getModel().equalsIgnoreCase(model))
                 .collect(Collectors.toList());
@@ -112,7 +112,7 @@ public class CarService {
 
 
     //список по диапазону цен
-    public static List<Car> createCarListInPriceDiapason(List<Car> list, double min, double max) {
+    public List<Car> createCarListInPriceDiapason(List<Car> list, double min, double max) {
         return list.stream()
                 .filter(i -> i.getPrice() >= min && i.getPrice() <= max)
                 .collect(Collectors.toList());

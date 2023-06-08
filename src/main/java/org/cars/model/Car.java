@@ -1,4 +1,4 @@
-package org.example.model;
+package org.cars.model;
 
 
 public class Car {
