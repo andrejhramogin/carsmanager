@@ -15,6 +15,4 @@ public interface CarService {
     List<Car> createCarListByBrand(List<Car> list, String brand);
     public List<Car> createCarListByModel(List<Car> list, String model);
     List<Car> createCarListInPriceDiapason(List<Car> list, double min, double max);
-
-
 }

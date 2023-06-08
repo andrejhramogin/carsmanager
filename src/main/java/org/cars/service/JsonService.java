@@ -10,6 +10,4 @@ public interface JsonService {
     void jsonWriteCarList(List<Car> list, String fileName) throws IOException;
 
     List<Car> jsonReadCarList(String fileName) throws IOException;
-
-
 }
