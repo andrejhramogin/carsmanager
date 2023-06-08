@@ -11,7 +11,7 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         CarService carService = new CarService();
-        JsonService jsonService = new JsonService();
+        JsonService json = new JsonService();
 
         //самые дорогие машины
         System.out.println("Most expensive cars:");
@@ -23,11 +23,11 @@ public class Main {
         PrintListUtils.printCarList(carService.findCarMinPrice(TestDataInitialisation.createCarList()));
 
 //        JSON запись списка отсортированного по бренду
-        jsonService.jsonWriteCarList(carService.createCarListByBrand(jsonService.jsonReadCarList("cars"), "toyota"), "toyota");
+        json.jsonWriteCarList(carService.createCarListByBrand(json.jsonReadCarList("cars"), "toyota"), "toyota");
         System.out.println();
 
 //        Чтение из файла toyota.json
         System.out.println("Read List<Car> \"toyota\" from JSON file: ");
-        PrintListUtils.printCarList(jsonService.jsonReadCarList("toyota"));
+        PrintListUtils.printCarList(json.jsonReadCarList("toyota"));
     }
 }
