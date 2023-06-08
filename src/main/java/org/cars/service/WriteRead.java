@@ -11,7 +11,7 @@ import java.util.List;
 
 public class WriteRead {
 
-    public static void writeCarList(List<Car> list, String fileName) {
+    public void writeCarList(List<Car> list, String fileName) {
         try (ObjectOutputStream oos = new ObjectOutputStream(Files.newOutputStream(Paths.get(fileName + ".bin")))) {
             oos.writeObject(new CarList(list));
         } catch (Exception e) {
@@ -19,7 +19,7 @@ public class WriteRead {
         }
     }
 
-    public static List<Car> readCarList(String fileName) {
+    public List<Car> readCarList(String fileName) {
         CarList carList = new CarList();
         try (ObjectInputStream ois = new ObjectInputStream(Files.newInputStream(Paths.get(fileName + ".bin")))) {
             carList = (CarList) ois.readObject();

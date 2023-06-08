@@ -25,6 +25,7 @@ public class Main {
 //        JSON запись списка отсортированного по бренду
         jsonService.jsonWriteCarList(carService.createCarListByBrand(jsonService.jsonReadCarList("cars"), "toyota"), "toyota");
         System.out.println();
+
 //        Чтение из файла toyota.json
         System.out.println("Read List<Car> \"toyota\" from JSON file: ");
         PrintListUtils.printCarList(jsonService.jsonReadCarList("toyota"));
