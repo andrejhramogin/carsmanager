@@ -1,29 +1,29 @@
 package org.cars;
 
 import org.cars.utils.TestDataInitialisation;
-import org.cars.service.CarService;
+import org.cars.service.CarServiceImpl;
 import org.cars.utils.PrintListUtils;
-import org.cars.service.JsonService;
+import org.cars.service.JsonServiceImpl;
 
 import java.io.IOException;
 
 public class Main {
     public static void main(String[] args) throws IOException {
 
-        CarService carService = new CarService();
-        JsonService json = new JsonService();
+        CarServiceImpl carServiceImpl = new CarServiceImpl();
+        JsonServiceImpl json = new JsonServiceImpl();
 
         //самые дорогие машины
         System.out.println("Most expensive cars:");
-        PrintListUtils.printCarList(carService.findCarMaxPrice(TestDataInitialisation.createCarList()));
+        PrintListUtils.printCarList(carServiceImpl.findCarMaxPrice(TestDataInitialisation.createCarList()));
         System.out.println();
 
         //самые дешевые машины
         System.out.println("Most cheapest cars:");
-        PrintListUtils.printCarList(carService.findCarMinPrice(TestDataInitialisation.createCarList()));
+        PrintListUtils.printCarList(carServiceImpl.findCarMinPrice(TestDataInitialisation.createCarList()));
 
 //        JSON запись списка отсортированного по бренду
-        json.jsonWriteCarList(carService.createCarListByBrand(json.jsonReadCarList("cars"), "toyota"), "toyota");
+        json.jsonWriteCarList(carServiceImpl.createCarListByBrand(json.jsonReadCarList("cars"), "toyota"), "toyota");
         System.out.println();
 
 //        Чтение из файла toyota.json
