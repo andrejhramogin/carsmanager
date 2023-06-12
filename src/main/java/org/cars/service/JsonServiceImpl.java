@@ -12,7 +12,7 @@ public class JsonServiceImpl implements JsonService{
 
     //запись с помощью JSON в файл filename.json
     @Override
-    public void jsonWriteCarList(List<Car> list, String fileName) throws IOException {
+    public void writeCarList(List<Car> list, String fileName) throws IOException {
 
         ObjectMapper mapper = new ObjectMapper();
         try {
@@ -25,7 +25,7 @@ public class JsonServiceImpl implements JsonService{
     //чтение из файла filename.json List<Car>
     //В классе Car должен быть создан пустой конструктор.
     @Override
-    public List<Car> jsonReadCarList(String fileName) throws IOException {
+    public List<Car> readCarList(String fileName) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         return mapper.readValue(new File(fileName + ".json"), new TypeReference<List<Car>>() {
         });

@@ -20,6 +20,6 @@ public class TestDataInitialisation {
                 new Car("BMW", "720", 2015, 16000.0),
                 new Car("Opel", "Astra", 2003, 4000.8),
                 new Car("Opel", "Corsa", 2020, 13000.8),
-                new Car("Opel", "Zafira", 2019, 11000.8)));
+                new Car("Opel", "Zafira", 2019, 11000)));
     }
 }
