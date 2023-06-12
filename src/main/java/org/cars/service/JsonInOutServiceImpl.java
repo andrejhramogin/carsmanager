@@ -8,7 +8,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-public class JsonServiceImpl implements JsonService{
+public class JsonInOutServiceImpl implements InOutService {
 
     //запись с помощью JSON в файл filename.json
     @Override

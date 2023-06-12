@@ -5,7 +5,7 @@ import org.cars.model.Car;
 import java.io.IOException;
 import java.util.List;
 
-public interface JsonService {
+public interface InOutService {
 
     void writeCarList(List<Car> list, String fileName) throws IOException;
 

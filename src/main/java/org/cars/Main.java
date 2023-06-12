@@ -1,11 +1,11 @@
 package org.cars;
 
 import org.cars.model.Car;
-import org.cars.service.TxtServiceImpl;
+import org.cars.service.TxtInOutServiceImpl;
 import org.cars.utils.TestDataInitialisation;
 import org.cars.service.CarServiceImpl;
 import org.cars.utils.PrintListUtils;
-import org.cars.service.JsonServiceImpl;
+import org.cars.service.JsonInOutServiceImpl;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -15,8 +15,8 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         CarServiceImpl carServiceImpl = new CarServiceImpl();
-        JsonServiceImpl json = new JsonServiceImpl();
-        TxtServiceImpl txtService = new TxtServiceImpl();
+        JsonInOutServiceImpl json = new JsonInOutServiceImpl();
+        TxtInOutServiceImpl txtService = new TxtInOutServiceImpl();
 
         List<Car> list = new ArrayList<>(TestDataInitialisation.createCarList());
 

@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class TxtServiceImpl implements JsonService {
+public class TxtInOutServiceImpl implements InOutService {
 
        @Override
     public void writeCarList(List<Car> list, String fileName) {
