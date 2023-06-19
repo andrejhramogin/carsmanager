@@ -7,7 +7,7 @@ import java.util.List;
 
 public interface InOutService {
 
-    void writeCarList(List<Car> list, String fileName) throws IOException;
+    void setData(List<Car> list) throws IOException;
 
-    List<Car> readCarList(String fileName) throws IOException;
+    List<Car> getData() throws IOException;
 }

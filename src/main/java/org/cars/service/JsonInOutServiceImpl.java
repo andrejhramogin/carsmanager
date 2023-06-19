@@ -12,11 +12,11 @@ public class JsonInOutServiceImpl implements InOutService {
 
     //запись с помощью JSON в файл filename.json
     @Override
-    public void writeCarList(List<Car> list, String fileName) throws IOException {
+    public void setData(List<Car> list) throws IOException {
 
         ObjectMapper mapper = new ObjectMapper();
         try {
-            mapper.writeValue(new File(fileName + ".json"), list);
+            mapper.writeValue(new File( "cars.json"), list);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -25,9 +25,9 @@ public class JsonInOutServiceImpl implements InOutService {
     //чтение из файла filename.json List<Car>
     //В классе Car должен быть создан пустой конструктор.
     @Override
-    public List<Car> readCarList(String fileName) throws IOException {
+    public List<Car> getData() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(new File(fileName + ".json"), new TypeReference<List<Car>>() {
+        return mapper.readValue(new File("cars.json"), new TypeReference<List<Car>>() {
         });
     }
 }

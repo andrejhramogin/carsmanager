@@ -2,6 +2,7 @@ package org.cars.service;
 import org.cars.model.Car;
 
 import java.util.List;
+import java.util.Scanner;
 import java.util.stream.Collectors;
 
 public class CarServiceImpl implements CarService{
@@ -124,5 +125,20 @@ public class CarServiceImpl implements CarService{
         return list.stream()
                 .filter(i -> i.getPrice() >= min && i.getPrice() <= max)
                 .collect(Collectors.toList());
+    }
+
+
+    //создает новый экземпляр Car
+    public Car createCar(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Brand:");
+        String brand = scanner.nextLine();
+        System.out.println("Model:");
+        String model = scanner.nextLine();
+        System.out.println("Year of production:");
+        int year = scanner.nextInt();
+        System.out.println("Price:");
+        double price = scanner.nextDouble();
+        return new Car(brand, model, year, price);
     }
 }
