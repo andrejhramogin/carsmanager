@@ -8,9 +8,6 @@ public class Main {
     public static void main(String[] args) throws IOException {
 
         CarServicePostgres carServicePostgres = new CarServicePostgres();
-
-
-         carServicePostgres.selectAction();
-
+        carServicePostgres.selectAction();
     }
 }

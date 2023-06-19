@@ -10,7 +10,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
@@ -47,18 +46,25 @@ public class CarServicePostgres {
                 PrintListUtils.printCarList(inOut.getData());
                 break;
             case 6:
+                System.out.println("Максимальная цена: " + getMaxPrice());
+                break;
+            case 7:
+                System.out.println("Минимальная цена: " + getMinPrice());
+                break;
+            case 8:
                 PrintListUtils.printCarList(sortingData());
         }
         selectAction();
     }
 
-
+    //операции сортировки данных из таблицы
     public List<Car> sortingData() throws IOException {
         Scanner scanner = new Scanner(System.in);
         PostgresInOutServiceImpl inOut = new PostgresInOutServiceImpl();
         System.out.println(UIMessage.MENU_SORTING_DATA);
         int choice = MethodUtils.getInteger();
         String query = null;
+
         switch (choice) {
             case 0:
                 selectAction();
@@ -121,7 +127,7 @@ public class CarServicePostgres {
     }
 
     //удаляет из таблицы авто по id
-    public void deleteCar(int num){
+    public void deleteCar(int num) {
         String url = "jdbc:postgresql://127.0.0.1/postgres";
         String name = "postgres";
         String password = "password";
@@ -136,5 +142,47 @@ public class CarServicePostgres {
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
+    }
+
+    public double getMaxPrice() {
+        String url = "jdbc:postgresql://127.0.0.1/postgres";
+        String name = "postgres";
+        String password = "password";
+        double max = 0;
+
+        try {
+            Class.forName("org.postgresql.Driver");
+            Connection connection = DriverManager.getConnection(url, name, password);
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery("Select max (price) from cars");
+            while (rs.next()) {
+                max = rs.getDouble("max");
+                connection.close();
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return max;
+    }
+
+    public double getMinPrice() {
+        String url = "jdbc:postgresql://127.0.0.1/postgres";
+        String name = "postgres";
+        String password = "password";
+        double min = 0;
+
+        try {
+            Class.forName("org.postgresql.Driver");
+            Connection connection = DriverManager.getConnection(url, name, password);
+            Statement statement = connection.createStatement();
+            ResultSet rs = statement.executeQuery("Select max (price) from cars");
+            while (rs.next()) {
+                min = rs.getDouble("min");
+                connection.close();
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return min;
     }
 }
