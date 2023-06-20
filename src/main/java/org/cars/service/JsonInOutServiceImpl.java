@@ -25,9 +25,9 @@ public class JsonInOutServiceImpl implements InOutService {
     //чтение из файла filename.json List<Car>
     //В классе Car должен быть создан пустой конструктор.
     @Override
-    public List<Car> getData() throws IOException {
+    public List<Car> getData(String path) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(new File("cars.json"), new TypeReference<List<Car>>() {
+        return mapper.readValue(new File(path + "json"), new TypeReference<List<Car>>() {
         });
     }
 }

@@ -9,5 +9,5 @@ public interface InOutService {
 
     void setData(List<Car> list) throws IOException;
 
-    List<Car> getData() throws IOException;
+    List<Car> getData(String str) throws IOException;
 }
