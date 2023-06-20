@@ -25,9 +25,9 @@ public class TxtInOutServiceImpl implements InOutService {
     }
 
     @Override
-    public List<Car> getData() {
+    public List<Car> getData(String path) {
         List<Car> list = new ArrayList<>();
-        try (Scanner scanner = new Scanner(new File("cars.txt"))) {
+        try (Scanner scanner = new Scanner(new File(path + ".txt"))) {
             while (scanner.hasNextLine()) {
                 String[] cars = scanner.nextLine().split(" ");
                 list.add(new Car(cars[0], cars[1], Integer.parseInt(cars[2]), Double.parseDouble(cars[3])));

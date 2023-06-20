@@ -15,7 +15,7 @@ public class PostgresInOutServiceImpl implements InOutService {
     //принимает List<Car> и вносит данные в таблицу cars в базе данных
     @Override
     public void setData(List<Car> list) throws IOException{
-        String url = "jdbc:postgresql://127.0.0.1/postgres";
+        String url = "jdbc:postgresql://localhost/postgres";
         String name = "postgres";
         String password = "password";
         try {
@@ -32,36 +32,10 @@ public class PostgresInOutServiceImpl implements InOutService {
         }
     }
 
-    //считывает данные из базы и возвращает их в виде List<Car>
-    @Override
-    public List<Car> getData() {
-        String url = "jdbc:postgresql://127.0.0.1/postgres";
-        String name = "postgres";
-        String password = "password";
-        List<Car> list = new ArrayList<>();
 
-        try {
-            Class.forName("org.postgresql.Driver");
-            Connection connection = DriverManager.getConnection(url, name, password);
-            Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("Select * From cars");
-            while (rs.next()) {
-                Car car = new Car();
-                car.setBrand(rs.getString("brand"));
-                car.setModel(rs.getString("model"));
-                car.setYear(rs.getInt("year"));
-                car.setPrice(rs.getDouble("price"));
-                list.add(car);
-                connection.close();
-            }
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-        return list;
-    }
-
-    public List<Car> getDataByQuery(String query) {
-        String url = "jdbc:postgresql://127.0.0.1/postgres";
+    //Получает данные из таблицы и возвращает List<Car>
+      public List<Car> getData(String query) {
+        String url = "jdbc:postgresql://localhost/postgres";
         String name = "postgres";
         String password = "password";
         List<Car> list = new ArrayList<>();
@@ -85,6 +59,4 @@ public class PostgresInOutServiceImpl implements InOutService {
         }
         return list;
     }
-
-
 }
