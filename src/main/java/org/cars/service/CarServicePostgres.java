@@ -79,7 +79,7 @@ public class CarServicePostgres {
             Class.forName("org.postgresql.Driver");
             Connection connection = DriverManager.getConnection(url, name, password);
             Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("Select max (price) from cars");
+            ResultSet rs = statement.executeQuery("Select min (price) from cars");
             while (rs.next()) {
                 min = rs.getDouble("min");
                 connection.close();
