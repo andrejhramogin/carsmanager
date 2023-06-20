@@ -1,6 +1,6 @@
-package method.json;
+package org.cars.service;
 
-import car.Car;
+import org.cars.model.Car;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
@@ -8,14 +8,15 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-public class JsonService {
+public class JsonInOutServiceImpl implements InOutService {
 
     //запись с помощью JSON в файл filename.json
-    public static void jsonWriteCarList(List<Car> list, String fileName) throws IOException {
+    @Override
+    public void setData(List<Car> list) throws IOException {
 
         ObjectMapper mapper = new ObjectMapper();
         try {
-            mapper.writeValue(new File(fileName + ".json"), list);
+            mapper.writeValue(new File( "cars.json"), list);
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
@@ -23,9 +24,10 @@ public class JsonService {
 
     //чтение из файла filename.json List<Car>
     //В классе Car должен быть создан пустой конструктор.
-    public static List<Car> jsonReadCarList(String fileName) throws IOException {
+    @Override
+    public List<Car> getData() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(new File(fileName + ".json"), new TypeReference<List<Car>>() {
+        return mapper.readValue(new File("cars.json"), new TypeReference<List<Car>>() {
         });
     }
 }
