@@ -2,10 +2,15 @@ package org.cars.utils;
 
 import org.cars.model.Car;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.Statement;
 import java.util.*;
+
+/**
+ * В классе содержатся вспомогательные методы для:
+ *  List<Car> createCarList() - создания List<Car> с тестовыми данными
+ *  int getInteger() - получения значения int с коносоли
+ *  double getDouble() - получения значения double с коносоли
+ *  Car createCar() - создание нового экземпляра Car
+ */
 
 public class MethodUtils {
 
@@ -65,27 +70,17 @@ public class MethodUtils {
         return d;
     }
 
-
-    //создает таблицу cars  в базе данных
-    public static void createTableCars(){
-        String url = "jdbc:postgresql://127.0.0.1/postgres";
-        String name = "postgres";
-        String password = "password";
-        try {
-            Class.forName("org.postgresql.Driver");
-            Connection connection = DriverManager.getConnection(url, name, password);
-            Statement statement = connection.createStatement();
-
-            statement.executeUpdate("CREATE TABLE cars (\n" +
-                    "    id serial PRIMARY key not null,\n" +
-                    "    brand varchar (100) NOT NULL,\n" +
-                    "    model varchar(100) NOT NULL,\n" +
-                    "    year smallint NOT NULL,\n" +
-                    "    price float NOT NULL\n" +
-                    "  )");
-            connection.close();
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
+    //создает новый экземпляр Car
+    public static Car createCar() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Brand:");
+        String brand = scanner.nextLine();
+        System.out.println("Model:");
+        String model = scanner.nextLine();
+        System.out.println("Year of production:");
+        int year = getInteger();
+        System.out.println("Price:");
+        double price = getDouble();
+        return new Car(brand, model, year, price);
     }
 }

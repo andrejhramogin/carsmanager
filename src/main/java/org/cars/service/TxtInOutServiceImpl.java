@@ -12,6 +12,8 @@ import java.util.Scanner;
 
 public class TxtInOutServiceImpl implements InOutService {
 
+
+
     @Override
     public void setData(List<Car> list) {
         try (FileWriter writer = new FileWriter("cars.txt", false)) {

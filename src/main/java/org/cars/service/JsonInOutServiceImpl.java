@@ -27,7 +27,7 @@ public class JsonInOutServiceImpl implements InOutService {
     @Override
     public List<Car> getData(String path) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(new File(path + "json"), new TypeReference<List<Car>>() {
+        return mapper.readValue(new File(path + ".json"), new TypeReference<List<Car>>() {
         });
     }
 }

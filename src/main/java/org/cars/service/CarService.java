@@ -6,13 +6,23 @@ import java.util.List;
 
 public interface CarService {
 
-    List<Car> sortPrice(List<Car> list);
-    List<Car> sortBrand(List<Car>list);
-    double findMaxPrice(List<Car> list);
-    double findMinPrice(List<Car> list);
-    List<Car> findCarMaxPrice(List<Car> list);
-    List<Car> findCarMinPrice(List<Car> list);
-    List<Car> createCarListByBrand(List<Car> list, String brand);
-    List<Car> createCarListByModel(List<Car> list, String model);
-    List<Car> createCarListInPriceDiapason(List<Car> list, double min, double max);
+    List<Car> sortByPrice();
+
+    List<Car> sortByBrand();
+
+    double findMaxPrice();
+
+    double findMinPrice();
+
+    List<Car> findCarWithMaxPrice();
+
+    List<Car> findCarWithMinPrice();
+
+    List<Car> findCarByBrand(String brand);
+
+    List<Car> findCarByModel(String model);
+
+    List<Car> findCarInPriceDiapason(double min, double max);
+
+    void printList();
 }

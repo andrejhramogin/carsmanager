@@ -1,105 +1,112 @@
 package org.cars.service;
 
-import org.cars.model.Car;
 import org.cars.utils.MethodUtils;
 import org.cars.utils.PrintListUtils;
-import org.cars.utils.UIMessage;
 
 import java.io.IOException;
-import java.util.List;
 import java.util.Scanner;
 
+/**
+ * В классе содержится метод void selectAction(), который позволяет выбрать место хранения данных
+ * (БД, файл .txt, файл .json), из которого они будут извлечены для дальнейших операций с ними, и сами операции.
+ */
 public class ConsoleMenuService {
 
-    //меню приложения
+    //Операции по сортировке, нахождению данных в базе автомобилей (в DB, файлах .txt, .json - по выбору пользователя).
     public void selectAction() throws IOException {
 
-        CarServicePostgres carServicePostgres = new CarServicePostgres();
-        PostgresInOutServiceImpl inOut = new PostgresInOutServiceImpl();
-        CarServiceImpl carService = new CarServiceImpl();
-        System.out.println(UIMessage.MENU_SELECT_ACTION);
-
-        int choice = MethodUtils.getInteger();
-
-        switch (choice) {
-            case 0:
-                return;
-            case 1:
-                MethodUtils.createTableCars();
-                break;
-            case 2:
-                inOut.setData(MethodUtils.createCarList());
-                break;
-            case 3:
-                 carServicePostgres.addCarToTable(carService.createCar());
-                break;
-            case 4:
-                System.out.println("Введите номер id удаляемой позиции:");
-                int pos = MethodUtils.getInteger();
-                carServicePostgres.deleteCarFromTable(pos);
-                break;
-            case 5:
-                PrintListUtils.printCarList(inOut.getData("Select * From cars"));
-                break;
-            case 6:
-                System.out.println("Максимальная цена: " + carServicePostgres.getMaxPrice());
-                break;
-            case 7:
-                System.out.println("Минимальная цена: " + carServicePostgres.getMinPrice());
-                break;
-            case 8:
-                PrintListUtils.printCarList(sortingData());
-        }
-        selectAction();
-    }
-
-    //операции сортировки данных из таблицы
-    public List<Car> sortingData() throws IOException {
         Scanner scanner = new Scanner(System.in);
-        PostgresInOutServiceImpl inOut = new PostgresInOutServiceImpl();
-        System.out.println(UIMessage.MENU_SORTING_DATA);
-        int choice = MethodUtils.getInteger();
-        String query = null;
 
-        switch (choice) {
-            case 0:
-                selectAction();
-            case 1:
-                query = "SELECT * FROM cars ORDER BY brand";
-                break;
-            case 2:
-                query = "SELECT * FROM cars ORDER BY brand DESC";
-                break;
-            case 3:
-                query = "SELECT * FROM cars ORDER BY price";
-                break;
-            case 4:
-                query = "SELECT * FROM cars ORDER BY price DESC";
-                break;
-            case 5:
-                System.out.println("Бренд:");
-                String brand = scanner.nextLine();
-                query = "SELECT * FROM cars WHERE lower (brand) = lower ('" + brand + "')";
-                break;
-            case 6:
-                System.out.println("Модель:");
-                String model = scanner.nextLine();
-                query = "SELECT * FROM cars WHERE lower (model) = lower ('" + model + "')";
-                break;
-            case 7:
-                System.out.println("Введите минимальную цену диапазона");
-                double min = MethodUtils.getDouble();
-                System.out.println("Введите максимальную цену диапазона");
-                double max = MethodUtils.getDouble();
-                query = "SELECT * FROM cars WHERE price between " + min + " and " + max + " order by price";
-                break;
-            case 8:
-                query = "SELECT * from cars WHERE price = ( select  MAX(price) FROM cars)";
-                break;
-            case 9:
-                query = "SELECT * from cars WHERE price = ( select  MIN(price) FROM cars)";
-                break;
+        CarService carService = null;
+        InOutService inOutService;
+
+        System.out.println("\nНажмите:\n" +
+                "1 - Для работы с данными, хранящимися в базе данных.\n" +
+                "2 - Для работы с данными, хранящимися в  файле .txt.\n" +
+                "3 - Для работы с данными, хранящимися в файле .json.\n" +
+                "0 - закончить работу.");
+
+        int choiceSource = MethodUtils.getInteger();
+
+        if (choiceSource == 1) {
+            carService = new DBCarServiceImpl();
+        } else if (choiceSource == 2) {
+            inOutService = new TxtInOutServiceImpl();
+            carService = new CarServiceImpl(inOutService.getData("cars"));
+        } else if (choiceSource == 3) {
+            inOutService = new JsonInOutServiceImpl();
+            carService = new CarServiceImpl(inOutService.getData("cars"));
+        } else if (choiceSource == 0) {
+            return;
+        } else {
+            System.out.println("Выберите из предложенных вариантов");
+            selectAction();
         }
-        return inOut.getData(query);
+
+        int choice;
+        while (true) {
+            System.out.println("\nНажмите:\n" +
+                    "0 - закончить работу\n" +
+                    "1 - вывести все данные из таблицы на консоль\n" +
+                    "2 - вывести максимальную цену\n" +
+                    "3 - вывести минимальную цену\n" +
+                    "4 - вывести список, отсортированный по бренду в порядке возрастания\n" +
+                    "5 - вывести список, отсортированный по цене в порядке возрастания\n" +
+                    "6 - вывести список автомобилей по заданному названию бренда\n" +
+                    "7 - вывести список, отсортированный по заданному названию модели \n" +
+                    "8 - вывести список автомобилей с ценой в диапазоне\n" +
+                    "9 - вывести список автомобилей с минимальной ценой\n" +
+                    "10 - вывести список автомобилей с максимальной ценой\n" +
+                    "11 - возврат к выбору места хранения данных.");
+
+            choice = MethodUtils.getInteger();
+
+            if (carService != null) {
+                switch (choice) {
+                    case 0:
+                        return;
+                    case 1:
+                        carService.printList();
+                        break;
+                    case 2:
+                        System.out.println("Максимальная цена: " + carService.findMaxPrice());
+                        break;
+                    case 3:
+                        System.out.println("Минимальная цена: " + carService.findMinPrice());
+                        break;
+                    case 4:
+                        PrintListUtils.printCarList(carService.sortByBrand());
+                        break;
+                    case 5:
+                        PrintListUtils.printCarList(carService.sortByPrice());
+                        break;
+                    case 6:
+                        System.out.println("Бренд:");
+                        String brand = scanner.nextLine();
+                        PrintListUtils.printCarList(carService.findCarByBrand(brand));
+                        break;
+                    case 7:
+                        System.out.println("Модель:");
+                        String model = scanner.nextLine();
+                        PrintListUtils.printCarList(carService.findCarByModel(model));
+                        break;
+                    case 8:
+                        System.out.println("Введите минимальную цену:");
+                        double min = MethodUtils.getDouble();
+                        System.out.println("Введите максимальную цену:");
+                        double max = MethodUtils.getDouble();
+                        PrintListUtils.printCarList(carService.findCarInPriceDiapason(min, max));
+                        break;
+                    case 9:
+                        PrintListUtils.printCarList(carService.findCarWithMinPrice());
+                        break;
+                    case 10:
+                        PrintListUtils.printCarList(carService.findCarWithMaxPrice());
+                        break;
+                    case 11:
+                        selectAction();
+                }
+            }
+        }
     }
 }

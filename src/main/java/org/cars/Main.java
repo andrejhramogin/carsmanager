@@ -1,7 +1,6 @@
 package org.cars;
 
-import org.cars.service.CarServicePostgres;
-import org.cars.service.ConsoleMenuService;
+import org.cars.service.*;
 
 import java.io.IOException;
 

@@ -2,7 +2,6 @@ package org.cars.service;
 
 import org.cars.model.Car;
 
-import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -10,11 +9,11 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PostgresInOutServiceImpl implements InOutService {
+public class DBInOutServiceImpl implements InOutService {
 
     //принимает List<Car> и вносит данные в таблицу cars в базе данных
     @Override
-    public void setData(List<Car> list) throws IOException{
+    public void setData(List<Car> list) {
         String url = "jdbc:postgresql://localhost/postgres";
         String name = "postgres";
         String password = "password";
@@ -32,9 +31,8 @@ public class PostgresInOutServiceImpl implements InOutService {
         }
     }
 
-
     //Получает данные из таблицы и возвращает List<Car>
-      public List<Car> getData(String query) {
+    public List<Car> getData(String query) {
         String url = "jdbc:postgresql://localhost/postgres";
         String name = "postgres";
         String password = "password";
