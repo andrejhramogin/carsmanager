@@ -6,6 +6,10 @@ import org.cars.utils.PrintListUtils;
 import java.util.List;
 import java.util.stream.Collectors;
 
+/**
+ * Класс имплементирет интерфейс CarService и переопределяет его методы.
+ */
+
 public class CarServiceImpl implements CarService {
 
     private final List<Car> list;
@@ -133,14 +137,5 @@ public class CarServiceImpl implements CarService {
         return list.stream()
                 .filter(i -> i.getPrice() >= min && i.getPrice() <= max)
                 .collect(Collectors.toList());
-    }
-
-    @Override
-    public void printList() {
-        try {
-            PrintListUtils.printCarList(list);
-        } catch (NullPointerException e) {
-            System.out.println(e.getMessage());
-        }
     }
 }

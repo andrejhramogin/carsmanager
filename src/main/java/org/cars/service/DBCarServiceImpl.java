@@ -102,7 +102,6 @@ public class DBCarServiceImpl implements CarService {
         return dbInOutService.getData("SELECT * FROM cars WHERE price between " + min + " and " + max + " order by price");
     }
 
-    @Override
     public void printList() {
         PrintListUtils.printCarList(dbInOutService.getData("Select * From cars"));
     }

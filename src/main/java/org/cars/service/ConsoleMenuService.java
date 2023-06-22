@@ -17,6 +17,9 @@ public class ConsoleMenuService {
 
         Scanner scanner = new Scanner(System.in);
 
+        ConsoleOutPutServiceImpl consoleOutPutService = new ConsoleOutPutServiceImpl();
+        DBInOutServiceImpl dbInOutService = new DBInOutServiceImpl();
+
         CarService carService = null;
         InOutService inOutService;
 
@@ -66,7 +69,7 @@ public class ConsoleMenuService {
                     case 0:
                         return;
                     case 1:
-                        carService.printList();
+                        consoleOutPutService.printList(dbInOutService.getData("Select * From cars"));
                         break;
                     case 2:
                         System.out.println("Максимальная цена: " + carService.findMaxPrice());

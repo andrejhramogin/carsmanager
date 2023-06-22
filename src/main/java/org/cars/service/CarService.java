@@ -4,6 +4,9 @@ import org.cars.model.Car;
 
 import java.util.List;
 
+/**
+ * Интерфейс определяет методы для работы с данными базы данных автомобилей ( из БД, фалоф .txt, .json)
+ */
 public interface CarService {
 
     List<Car> sortByPrice();
@@ -24,5 +27,4 @@ public interface CarService {
 
     List<Car> findCarInPriceDiapason(double min, double max);
 
-    void printList();
 }
