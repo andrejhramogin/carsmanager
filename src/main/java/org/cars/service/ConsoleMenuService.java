@@ -21,7 +21,7 @@ public class ConsoleMenuService {
         DBInOutServiceImpl dbInOutService = new DBInOutServiceImpl();
 
         CarService carService = null;
-        InOutService inOutService;
+        InOutService inOutService = null;
 
         System.out.println("\nНажмите:\n" +
                 "1 - Для работы с данными, хранящимися в базе данных.\n" +
@@ -30,15 +30,21 @@ public class ConsoleMenuService {
                 "0 - закончить работу.");
 
         int choiceSource = MethodUtils.getInteger();
+        String str = null;
 
         if (choiceSource == 1) {
+            inOutService = new DBInOutServiceImpl();
             carService = new DBCarServiceImpl();
+            str = "Select * From cars";
+
         } else if (choiceSource == 2) {
             inOutService = new TxtInOutServiceImpl();
             carService = new CarServiceImpl(inOutService.getData("cars"));
+            str = "cars";
         } else if (choiceSource == 3) {
             inOutService = new JsonInOutServiceImpl();
             carService = new CarServiceImpl(inOutService.getData("cars"));
+            str = "cars";
         } else if (choiceSource == 0) {
             return;
         } else {
@@ -64,12 +70,12 @@ public class ConsoleMenuService {
 
             choice = MethodUtils.getInteger();
 
-            if (carService != null) {
+            if (carService != null ) {
                 switch (choice) {
                     case 0:
                         return;
                     case 1:
-                        consoleOutPutService.printList(dbInOutService.getData("Select * From cars"));
+                        consoleOutPutService.printList(inOutService.getData(str));
                         break;
                     case 2:
                         System.out.println("Максимальная цена: " + carService.findMaxPrice());
