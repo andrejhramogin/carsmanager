@@ -1,48 +1,45 @@
-package org.cars.service;
+package org.cars.service.carservice;
 
 import org.cars.model.Car;
-import org.cars.utils.PrintListUtils;
+import org.cars.service.dbconnectionservice.DBConnectionService;
+import org.cars.service.inoutservice.DBInOutServiceImpl;
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.List;
-
 
 public class DBCarServiceImpl implements CarService {
 
     DBInOutServiceImpl dbInOutService = new DBInOutServiceImpl();
+    DBConnectionService dbConnection = DBConnectionService.getInstance();
+    Connection connection = dbConnection.newConnection();
+    Statement statement = connection.createStatement();
+    ResultSet rs;
+
+    public DBCarServiceImpl() throws SQLException {
+    }
 
     //Сортирует по цене в порядке возрастания
     @Override
-    public List<Car> sortByPrice() {
+    public List<Car> sortByPrice() throws SQLException {
         return dbInOutService.getData("SELECT * FROM cars ORDER BY price");
     }
 
     //Сортирует по названию бренда в порядке возрастания
     @Override
-    public List<Car> sortByBrand() {
+    public List<Car> sortByBrand() throws SQLException {
         return dbInOutService.getData("SELECT * FROM cars ORDER BY brand");
     }
 
     //Находит максимальную цену
     @Override
     public double findMaxPrice() {
-        String url = "jdbc:postgresql://127.0.0.1/postgres";
-        String name = "postgres";
-        String password = "password";
         double max = 0;
-
         try {
-            Class.forName("org.postgresql.Driver");
-            Connection connection = DriverManager.getConnection(url, name, password);
-            Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("Select max (price) from cars");
+            rs = statement.executeQuery("Select max (price) from cars");
             while (rs.next()) {
                 max = rs.getDouble("max");
-                connection.close();
             }
+            dbConnection.closeConnection();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
@@ -52,20 +49,13 @@ public class DBCarServiceImpl implements CarService {
     //Находит минимальную цену
     @Override
     public double findMinPrice() {
-        String url = "jdbc:postgresql://127.0.0.1/postgres";
-        String name = "postgres";
-        String password = "password";
         double min = 0;
-
         try {
-            Class.forName("org.postgresql.Driver");
-            Connection connection = DriverManager.getConnection(url, name, password);
-            Statement statement = connection.createStatement();
-            ResultSet rs = statement.executeQuery("Select min (price) from cars");
+            rs = statement.executeQuery("Select min (price) from cars");
             while (rs.next()) {
                 min = rs.getDouble("min");
-                connection.close();
             }
+            dbConnection.closeConnection();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
@@ -74,35 +64,31 @@ public class DBCarServiceImpl implements CarService {
 
     //Находит все авто с максимальной ценой
     @Override
-    public List<Car> findCarWithMaxPrice() {
+    public List<Car> findCarWithMaxPrice() throws SQLException {
         return dbInOutService.getData("SELECT * from cars WHERE price = ( select  MAX(price) FROM cars)");
     }
 
     //Находит все авто с минимальной ценой
     @Override
-    public List<Car> findCarWithMinPrice() {
+    public List<Car> findCarWithMinPrice() throws SQLException {
         return dbInOutService.getData("SELECT * from cars WHERE price = ( select  MIN(price) FROM cars)");
     }
 
     //Находит все авто по названию бренда
     @Override
-    public List<Car> findCarByBrand(String brand) {
+    public List<Car> findCarByBrand(String brand) throws SQLException {
         return dbInOutService.getData("SELECT * FROM cars WHERE lower (brand) = lower ('" + brand + "')");
     }
 
     //Находит все авто по названию модели
     @Override
-    public List<Car> findCarByModel(String model) {
+    public List<Car> findCarByModel(String model) throws SQLException {
         return dbInOutService.getData("SELECT * FROM cars WHERE lower (model) = lower ('" + model + "')");
     }
 
     //Находит все авто в задаваемом диапазоне цен
     @Override
-    public List<Car> findCarInPriceDiapason(double min, double max) {
+    public List<Car> findCarInPriceDiapason(double min, double max) throws SQLException {
         return dbInOutService.getData("SELECT * FROM cars WHERE price between " + min + " and " + max + " order by price");
-    }
-
-    public void printList() {
-        PrintListUtils.printCarList(dbInOutService.getData("Select * From cars"));
     }
 }

@@ -1,7 +1,6 @@
-package org.cars.service;
+package org.cars.service.carservice;
 
 import org.cars.model.Car;
-import org.cars.utils.PrintListUtils;
 
 import java.util.List;
 import java.util.stream.Collectors;

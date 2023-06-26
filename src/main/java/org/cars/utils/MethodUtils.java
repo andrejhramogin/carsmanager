@@ -8,7 +8,7 @@ import java.util.*;
  * В классе содержатся вспомогательные методы для:
  *  List<Car> createCarList() - создания List<Car> с тестовыми данными
  *  int getInteger() - получения значения int с коносоли
- *  double getDouble() - получения значения double с коносоли
+ *  double getDouble() - получения значения double с консоли
  *  Car createCar() - создание нового экземпляра Car
  */
 

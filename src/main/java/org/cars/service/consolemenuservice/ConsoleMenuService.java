@@ -1,58 +1,67 @@
-package org.cars.service;
+package org.cars.service.consolemenuservice;
 
+import org.cars.service.carservice.CarService;
+import org.cars.service.carservice.CarServiceImpl;
+import org.cars.service.carservice.DBCarServiceImpl;
+import org.cars.service.inoutservice.DBInOutServiceImpl;
+import org.cars.service.inoutservice.InOutService;
+import org.cars.service.inoutservice.JsonInOutServiceImpl;
+import org.cars.service.inoutservice.TxtInOutServiceImpl;
+import org.cars.service.consoleoutputservice.ConsoleOutputServiceImpl;
 import org.cars.utils.MethodUtils;
-import org.cars.utils.PrintListUtils;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.Scanner;
 
 /**
- * В классе содержится метод void selectAction(), который позволяет выбрать место хранения данных
- * (БД, файл .txt, файл .json), из которого они будут извлечены для дальнейших операций с ними, и сами операции.
+ * В классе содержатся методы:
+ * void selectAction()throws IOException, SQLException - выбирает место хранения данных (БД, файл .txt, файл .json),
+ * из которого они будут извлечены для дальнейших операций с ними.
+ * void chooseOperation() throws SQLException - выбирает и реализует операции с данными.
  */
 public class ConsoleMenuService {
 
-    //Операции по сортировке, нахождению данных в базе автомобилей (в DB, файлах .txt, .json - по выбору пользователя).
-    public void selectAction() throws IOException {
+    private CarService carService;
+    private InOutService inOutService;
+    private final Scanner scanner = new Scanner(System.in);
+    String str;
+    int actionChoice;
+    int operationChoice;
 
-        Scanner scanner = new Scanner(System.in);
-
-        ConsoleOutPutServiceImpl consoleOutPutService = new ConsoleOutPutServiceImpl();
-        DBInOutServiceImpl dbInOutService = new DBInOutServiceImpl();
-
-        CarService carService = null;
-        InOutService inOutService = null;
+    //Выбирает источник данных автомобилей (в DB, файлах .txt, .json - по выбору пользователя).
+    public void chooseAction() throws IOException, SQLException {
 
         System.out.println("\nНажмите:\n" +
                 "1 - Для работы с данными, хранящимися в базе данных.\n" +
                 "2 - Для работы с данными, хранящимися в  файле .txt.\n" +
-                "3 - Для работы с данными, хранящимися в файле .json.\n" +
-                "0 - закончить работу.");
+                "3 - Для работы с данными, хранящимися в файле .json.\n");
 
-        int choiceSource = MethodUtils.getInteger();
-        String str = null;
+        actionChoice = MethodUtils.getInteger();
 
-        if (choiceSource == 1) {
+        if (actionChoice == 1) {
+            str = "Select * From cars";
             inOutService = new DBInOutServiceImpl();
             carService = new DBCarServiceImpl();
-            str = "Select * From cars";
-
-        } else if (choiceSource == 2) {
+        } else if (actionChoice == 2) {
+            str = "cars";
             inOutService = new TxtInOutServiceImpl();
-            carService = new CarServiceImpl(inOutService.getData("cars"));
+            carService = new CarServiceImpl(inOutService.getData(str));
+        } else if (actionChoice == 3) {
             str = "cars";
-        } else if (choiceSource == 3) {
             inOutService = new JsonInOutServiceImpl();
-            carService = new CarServiceImpl(inOutService.getData("cars"));
-            str = "cars";
-        } else if (choiceSource == 0) {
-            return;
+            carService = new CarServiceImpl(inOutService.getData(str));
         } else {
             System.out.println("Выберите из предложенных вариантов");
-            selectAction();
+            chooseAction();
         }
+        chooseOperation();
+    }
 
-        int choice;
+    public void chooseOperation() throws SQLException, IOException {
+
+        ConsoleOutputServiceImpl consoleOutput = new ConsoleOutputServiceImpl();
+
         while (true) {
             System.out.println("\nНажмите:\n" +
                     "0 - закончить работу\n" +
@@ -68,14 +77,14 @@ public class ConsoleMenuService {
                     "10 - вывести список автомобилей с максимальной ценой\n" +
                     "11 - возврат к выбору места хранения данных.");
 
-            choice = MethodUtils.getInteger();
+            operationChoice = MethodUtils.getInteger();
 
-            if (carService != null ) {
-                switch (choice) {
+            if (carService != null) {
+                switch (operationChoice) {
                     case 0:
                         return;
                     case 1:
-                        consoleOutPutService.printList(inOutService.getData(str));
+                        consoleOutput.printList(inOutService.getData(str));
                         break;
                     case 2:
                         System.out.println("Максимальная цена: " + carService.findMaxPrice());
@@ -84,36 +93,36 @@ public class ConsoleMenuService {
                         System.out.println("Минимальная цена: " + carService.findMinPrice());
                         break;
                     case 4:
-                        PrintListUtils.printCarList(carService.sortByBrand());
+                        consoleOutput.printList(carService.sortByBrand());
                         break;
                     case 5:
-                        PrintListUtils.printCarList(carService.sortByPrice());
+                        consoleOutput.printList(carService.sortByPrice());
                         break;
                     case 6:
                         System.out.println("Бренд:");
                         String brand = scanner.nextLine();
-                        PrintListUtils.printCarList(carService.findCarByBrand(brand));
+                        consoleOutput.printList(carService.findCarByBrand(brand));
                         break;
                     case 7:
                         System.out.println("Модель:");
                         String model = scanner.nextLine();
-                        PrintListUtils.printCarList(carService.findCarByModel(model));
+                        consoleOutput.printList(carService.findCarByModel(model));
                         break;
                     case 8:
                         System.out.println("Введите минимальную цену:");
                         double min = MethodUtils.getDouble();
                         System.out.println("Введите максимальную цену:");
                         double max = MethodUtils.getDouble();
-                        PrintListUtils.printCarList(carService.findCarInPriceDiapason(min, max));
+                        consoleOutput.printList(carService.findCarInPriceDiapason(min, max));
                         break;
                     case 9:
-                        PrintListUtils.printCarList(carService.findCarWithMinPrice());
+                        consoleOutput.printList(carService.findCarWithMinPrice());
                         break;
                     case 10:
-                        PrintListUtils.printCarList(carService.findCarWithMaxPrice());
+                        consoleOutput.printList(carService.findCarWithMaxPrice());
                         break;
                     case 11:
-                        selectAction();
+                        chooseAction();
                 }
             }
         }

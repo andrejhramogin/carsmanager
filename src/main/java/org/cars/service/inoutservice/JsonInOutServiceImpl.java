@@ -1,8 +1,9 @@
-package org.cars.service;
+package org.cars.service.inoutservice;
 
 import org.cars.model.Car;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.cars.service.inoutservice.InOutService;
 
 import java.io.File;
 import java.io.IOException;

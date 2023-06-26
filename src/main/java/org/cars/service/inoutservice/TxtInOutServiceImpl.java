@@ -1,6 +1,7 @@
-package org.cars.service;
+package org.cars.service.inoutservice;
 
 import org.cars.model.Car;
+import org.cars.service.inoutservice.InOutService;
 
 import java.io.File;
 import java.io.FileNotFoundException;
