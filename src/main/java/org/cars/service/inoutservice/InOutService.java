@@ -1,13 +1,14 @@
-package org.cars.service;
+package org.cars.service.inoutservice;
 
 import org.cars.model.Car;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 public interface InOutService {
 
     void setData(List<Car> list) throws IOException;
 
-    List<Car> getData(String str) throws IOException;
+    List<Car> getData(String str) throws IOException, SQLException;
 }

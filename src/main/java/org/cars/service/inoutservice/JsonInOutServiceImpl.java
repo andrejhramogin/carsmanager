@@ -1,8 +1,9 @@
-package org.cars.service;
+package org.cars.service.inoutservice;
 
 import org.cars.model.Car;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.cars.service.inoutservice.InOutService;
 
 import java.io.File;
 import java.io.IOException;
@@ -27,7 +28,7 @@ public class JsonInOutServiceImpl implements InOutService {
     @Override
     public List<Car> getData(String path) throws IOException {
         ObjectMapper mapper = new ObjectMapper();
-        return mapper.readValue(new File(path + "json"), new TypeReference<List<Car>>() {
+        return mapper.readValue(new File(path + ".json"), new TypeReference<List<Car>>() {
         });
     }
 }

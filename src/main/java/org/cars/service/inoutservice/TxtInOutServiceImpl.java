@@ -1,6 +1,7 @@
-package org.cars.service;
+package org.cars.service.inoutservice;
 
 import org.cars.model.Car;
+import org.cars.service.inoutservice.InOutService;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,6 +12,8 @@ import java.util.List;
 import java.util.Scanner;
 
 public class TxtInOutServiceImpl implements InOutService {
+
+
 
     @Override
     public void setData(List<Car> list) {
