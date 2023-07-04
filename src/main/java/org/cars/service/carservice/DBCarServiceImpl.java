@@ -3,14 +3,21 @@ package org.cars.service.carservice;
 import org.cars.model.Car;
 import org.cars.service.dbconnectionservice.DBConnectionService;
 import org.cars.service.inoutservice.DBInOutServiceImpl;
+import org.springframework.stereotype.Component;
 
 import java.sql.*;
 import java.util.List;
 
+/**
+ * Имплементирует интерфейс CarService
+ * Переопределяет методы интерфейса CarService
+ */
+
+@Component("dBCarServiceImpl")
 public class DBCarServiceImpl implements CarService {
 
-    DBInOutServiceImpl dbInOutService = new DBInOutServiceImpl();
     DBConnectionService dbConnection = DBConnectionService.getInstance();
+    DBInOutServiceImpl dbInOutService = new DBInOutServiceImpl();
     Connection connection = dbConnection.newConnection();
     Statement statement = connection.createStatement();
     ResultSet rs;
@@ -90,5 +97,10 @@ public class DBCarServiceImpl implements CarService {
     @Override
     public List<Car> findCarInPriceDiapason(double min, double max) throws SQLException {
         return dbInOutService.getData("SELECT * FROM cars WHERE price between " + min + " and " + max + " order by price");
+    }
+
+    @Override
+    public void setList(List<Car> list) {
+
     }
 }

@@ -3,12 +3,13 @@ package org.cars.service.inoutservice;
 import org.cars.model.Car;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import org.cars.service.inoutservice.InOutService;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+@Component
 public class JsonInOutServiceImpl implements InOutService {
 
     //запись с помощью JSON в файл filename.json
