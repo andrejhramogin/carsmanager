@@ -1,14 +1,12 @@
 package org.cars.service.consolemenuservice;
 
 import org.cars.service.carservice.CarService;
-import org.cars.service.carservice.CarServiceImpl;
-import org.cars.service.carservice.DBCarServiceImpl;
-import org.cars.service.inoutservice.DBInOutServiceImpl;
 import org.cars.service.inoutservice.InOutService;
-import org.cars.service.inoutservice.JsonInOutServiceImpl;
-import org.cars.service.inoutservice.TxtInOutServiceImpl;
 import org.cars.service.consoleoutputservice.ConsoleOutputServiceImpl;
 import org.cars.utils.MethodUtils;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.stereotype.Component;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -20,14 +18,38 @@ import java.util.Scanner;
  * из которого они будут извлечены для дальнейших операций с ними.
  * void chooseOperation() throws SQLException - выбирает и реализует операции с данными.
  */
+
+@Component
 public class ConsoleMenuService {
 
-    private CarService carService;
-    private InOutService inOutService;
     private final Scanner scanner = new Scanner(System.in);
+
+    private CarService carService;
+    private final CarService dBCarServiceImpl;
+    private final CarService carServiceImpl;
+
+    private InOutService inOutService;
+    private final InOutService dBInOutService;
+    private final InOutService txtInOutService;
+    private final InOutService jsonInOutService;
+
     String str;
     int actionChoice;
     int operationChoice;
+
+    @Autowired
+    public ConsoleMenuService(@Qualifier("dBInOutServiceImpl") InOutService dBInOutService,
+                              @Qualifier("txtInOutServiceImpl") InOutService txtInOutService,
+                              @Qualifier("jsonInOutServiceImpl") InOutService jsonInOutService,
+                              @Qualifier("dBCarServiceImpl") CarService dBCarServiceImpl,
+                              @Qualifier("carServiceImpl") CarService carServiceImpl)
+    {
+        this.dBInOutService = dBInOutService;
+        this.txtInOutService = txtInOutService;
+        this.jsonInOutService = jsonInOutService;
+        this.dBCarServiceImpl = dBCarServiceImpl;
+        this.carServiceImpl = carServiceImpl;
+    }
 
     //Выбирает источник данных автомобилей (в DB, файлах .txt, .json - по выбору пользователя).
     public void chooseAction() throws IOException, SQLException {
@@ -41,16 +63,23 @@ public class ConsoleMenuService {
 
         if (actionChoice == 1) {
             str = "Select * From cars";
-            inOutService = new DBInOutServiceImpl();
-            carService = new DBCarServiceImpl();
+            inOutService = dBInOutService;
+            carService = dBCarServiceImpl;
+
         } else if (actionChoice == 2) {
             str = "cars";
-            inOutService = new TxtInOutServiceImpl();
-            carService = new CarServiceImpl(inOutService.getData(str));
+            inOutService = txtInOutService;
+            carService = carServiceImpl;
+            carServiceImpl.setList(txtInOutService.getData(str));
+//            carService = new CarServiceImpl(txtInOutService.getData(str));
+
         } else if (actionChoice == 3) {
             str = "cars";
-            inOutService = new JsonInOutServiceImpl();
-            carService = new CarServiceImpl(inOutService.getData(str));
+            inOutService = jsonInOutService;
+            carService = carServiceImpl;
+            carServiceImpl.setList(jsonInOutService.getData(str));
+//            carService = new CarServiceImpl(jsonInOutService.getData(str));
+
         } else {
             System.out.println("Выберите из предложенных вариантов");
             chooseAction();

@@ -1,7 +1,7 @@
 package org.cars.service.inoutservice;
 
 import org.cars.model.Car;
-import org.cars.service.inoutservice.InOutService;
+import org.springframework.stereotype.Component;
 
 import java.io.File;
 import java.io.FileNotFoundException;
@@ -11,9 +11,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+@Component
 public class TxtInOutServiceImpl implements InOutService {
-
-
 
     @Override
     public void setData(List<Car> list) {

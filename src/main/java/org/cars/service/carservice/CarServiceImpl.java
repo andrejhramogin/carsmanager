@@ -1,7 +1,9 @@
 package org.cars.service.carservice;
 
 import org.cars.model.Car;
+import org.springframework.stereotype.Component;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -9,13 +11,19 @@ import java.util.stream.Collectors;
  * Класс имплементирет интерфейс CarService и переопределяет его методы.
  */
 
+@Component
 public class CarServiceImpl implements CarService {
 
-    private final List<Car> list;
+    private List<Car> list = new ArrayList<>();
 
-    public CarServiceImpl(List<Car> list) {
+    @Override
+    public void setList(List<Car> list) {
         this.list = list;
     }
+
+//        public CarServiceImpl(List<Car> list) {
+//        this.list = list;
+//    }
 
     //сортировка по цене
     @Override
