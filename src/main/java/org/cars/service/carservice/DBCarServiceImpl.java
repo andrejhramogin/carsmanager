@@ -6,6 +6,7 @@ import org.cars.service.inoutservice.DBInOutServiceImpl;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -102,5 +103,27 @@ public class DBCarServiceImpl implements CarService {
     @Override
     public void setList(List<Car> list) {
 
+    }
+
+    @Override
+    public List<Car> getAllCars() throws SQLException {
+        List<Car> list = new ArrayList<>();
+
+        rs = statement.executeQuery("SELECT * FROM cars");
+
+        try {
+            while (rs.next()) {
+                Car car = new Car();
+                car.setBrand(rs.getString("brand"));
+                car.setModel(rs.getString("model"));
+                car.setYear(rs.getInt("year"));
+                car.setPrice(rs.getDouble("price"));
+                list.add(car);
+            }
+            dbConnection.closeConnection();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return list;
     }
 }

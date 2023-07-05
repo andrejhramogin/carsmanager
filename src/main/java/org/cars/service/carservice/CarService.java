@@ -30,4 +30,6 @@ public interface CarService {
 
     void setList(List<Car>list);
 
+    public List<Car> getAllCars() throws SQLException ;
+
 }

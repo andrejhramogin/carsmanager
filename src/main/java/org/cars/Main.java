@@ -1,6 +1,7 @@
 package org.cars;
 
 import org.cars.service.consolemenuservice.ConsoleMenuService;
+import org.cars.service.dbservice.DBService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import java.io.IOException;
@@ -16,5 +17,6 @@ public class Main {
         consoleMenuService.chooseAction();
 
         context.close();
+
     }
 }

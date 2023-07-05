@@ -1,9 +1,16 @@
 package org.cars.service.carservice;
 
 import org.cars.model.Car;
+import org.cars.service.dbconnectionservice.DBConnectionService;
 import org.springframework.stereotype.Component;
+import org.springframework.web.bind.annotation.RequestBody;
 
+import java.sql.Connection;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -144,5 +151,10 @@ public class CarServiceImpl implements CarService {
         return list.stream()
                 .filter(i -> i.getPrice() >= min && i.getPrice() <= max)
                 .collect(Collectors.toList());
+    }
+
+
+    public List<Car> getAllCars() throws SQLException {
+        return null;
     }
 }
