@@ -13,7 +13,7 @@ import java.sql.*;
  * Закрывает подключение к DB
  */
 
-@Component("dBConnectionService")
+//@Component("dBConnectionService")
 public class DBConnectionService {
 
     private static DBConnectionService instance;
