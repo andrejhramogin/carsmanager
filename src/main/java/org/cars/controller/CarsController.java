@@ -14,13 +14,13 @@ public class CarsController {
 
     // CRUD
     @Autowired
-    @Qualifier("DBCarServiceImpl")
+    @Qualifier("dBCarServiceImpl")
     private CarService carService;
 
     @PostMapping("/cars")
     public Car createCar(@RequestBody Car car) {
         // логика создания машины в БД и возвращение ее в ответе
-        return carService.create(car);
+        return carService.createNewCar(car);
     }
 
     @PutMapping("/cars/{id}")
@@ -29,9 +29,9 @@ public class CarsController {
         return carService.update(car);
     }
 
+    // вернуть список всех машин которые лежат в бд
     @GetMapping("/cars")
     public List<Car> getCars() throws SQLException {
-        // вернуть список всех машин которые лежат в бд
         return carService.getAllCars();
     }
 
@@ -41,9 +41,9 @@ public class CarsController {
         return carService.getCarById(id);
     }
 
+    // удалить машину по id
     @DeleteMapping("/cars/{id}")
-    public void deleteCarById(@PathVariable Long id) {
-        // удалить машину по id
+    public void deleteCarById(@PathVariable int id) throws SQLException {
         carService.deleteCarById(id);
     }
 }

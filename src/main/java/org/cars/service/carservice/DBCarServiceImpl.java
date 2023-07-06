@@ -102,18 +102,17 @@ public class DBCarServiceImpl implements CarService {
 
     @Override
     public void setList(List<Car> list) {
-
     }
 
+    //Выводит весь список машин
     @Override
     public List<Car> getAllCars() throws SQLException {
         List<Car> list = new ArrayList<>();
-
         rs = statement.executeQuery("SELECT * FROM cars");
-
         try {
             while (rs.next()) {
                 Car car = new Car();
+                car.setId(rs.getInt("id"));
                 car.setBrand(rs.getString("brand"));
                 car.setModel(rs.getString("model"));
                 car.setYear(rs.getInt("year"));
@@ -125,5 +124,32 @@ public class DBCarServiceImpl implements CarService {
             System.out.println(ex.getMessage());
         }
         return list;
+    }
+
+    //удаление авто по id
+    @Override
+    public void deleteCarById(int id) throws SQLException {
+        try {
+            statement.executeQuery("DELETE FROM cars WHERE id = " + id);
+            System.out.println("Строка с номером ID = " + id + "удалена из таблицы");
+            dbConnection.closeConnection();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    //создание нового авто в таблице "cars", возвращение id созданного объекта, return этого авто.
+    @Override
+    public Car createNewCar(Car car) {
+        try {
+            statement.executeQuery(String.format("INSERT INTO cars (brand, model, year, price) VALUES " +
+                            " ('%s', '%s', '%d', '%f') RETURNING id",
+                    car.getBrand(), car.getModel(), car.getYear(), car.getPrice()));
+//            dbConnection.closeConnection();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+
+        return
     }
 }

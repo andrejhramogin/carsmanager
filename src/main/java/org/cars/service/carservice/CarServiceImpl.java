@@ -153,8 +153,17 @@ public class CarServiceImpl implements CarService {
                 .collect(Collectors.toList());
     }
 
-
+@Override
     public List<Car> getAllCars() throws SQLException {
         return null;
     }
+
+    @Override
+    public void deleteCarById(int num) throws SQLException{};
+
+    @Override
+    public Car createNewCar(Car car){
+        return null;
+    };
+
 }

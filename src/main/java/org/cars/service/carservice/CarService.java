@@ -28,8 +28,11 @@ public interface CarService {
 
     List<Car> findCarInPriceDiapason(double min, double max) throws SQLException;
 
-    void setList(List<Car>list);
+    void setList(List<Car> list);
 
-    public List<Car> getAllCars() throws SQLException ;
+    List<Car> getAllCars() throws SQLException;
 
+    void deleteCarById(int num) throws SQLException;
+
+    Car createNewCar(Car car);
 }
