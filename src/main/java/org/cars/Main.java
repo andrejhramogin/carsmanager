@@ -1,22 +1,14 @@
 package org.cars;
 
-import org.cars.service.consolemenuservice.ConsoleMenuService;
-import org.cars.service.dbservice.DBService;
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.cars.controller.CarsController;
+import org.springframework.boot.SpringApplication;
+import org.springframework.context.ConfigurableApplicationContext;
 
 import java.io.IOException;
 import java.sql.SQLException;
 
 public class Main {
     public static void main(String[] args) throws IOException, SQLException {
-
-        AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext(SpringConfig.class);
-
-        ConsoleMenuService consoleMenuService = context.getBean("consoleMenuService", ConsoleMenuService.class);
-
-        consoleMenuService.chooseAction();
-
-        context.close();
-
+        ConfigurableApplicationContext context = SpringApplication.run(CarsController.class, args);
     }
 }

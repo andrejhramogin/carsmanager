@@ -1,7 +1,6 @@
 package org.cars.service.dbconnectionservice;
 
 import org.postgresql.ds.PGPoolingDataSource;
-import org.springframework.stereotype.Component;
 
 import java.sql.*;
 

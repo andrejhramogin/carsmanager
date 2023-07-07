@@ -1,8 +1,10 @@
 package org.cars.service.carservice;
 
 import org.cars.model.Car;
+import org.cars.service.consoleoutputservice.ConsoleOutputServiceImpl;
 import org.cars.service.dbconnectionservice.DBConnectionService;
 import org.cars.service.inoutservice.DBInOutServiceImpl;
+import org.cars.utils.MethodUtils;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
@@ -130,26 +132,59 @@ public class DBCarServiceImpl implements CarService {
     @Override
     public void deleteCarById(int id) throws SQLException {
         try {
-            statement.executeQuery("DELETE FROM cars WHERE id = " + id);
-            System.out.println("Строка с номером ID = " + id + "удалена из таблицы");
+            statement.executeUpdate("DELETE FROM cars WHERE id = " + id);
+
             dbConnection.closeConnection();
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
+        System.out.println("Строка с номером ID = " + id + " удалена из таблицы");
     }
 
-    //создание нового авто в таблице "cars", возвращение id созданного объекта, return этого авто.
+    //создаёт новое авто в таблице "cars", возвращает его по id, которое возвращается через "RETURNING id".
     @Override
-    public Car createNewCar(Car car) {
+    public Car createNewCar(Car car) throws SQLException {
+        int id = 0;
         try {
-            statement.executeQuery(String.format("INSERT INTO cars (brand, model, year, price) VALUES " +
+            rs = statement.executeQuery(String.format("INSERT INTO cars (brand, model, year, price) VALUES " +
                             " ('%s', '%s', '%d', '%f') RETURNING id",
                     car.getBrand(), car.getModel(), car.getYear(), car.getPrice()));
-//            dbConnection.closeConnection();
+            while (rs.next()) {
+                id = rs.getInt("id");
+            }
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
+        dbConnection.closeConnection();
+        return findCarById(id);
+    }
 
-        return
+    //находит в БД и возвращает авто по id.
+    @Override
+    public Car findCarById(int id) throws SQLException {
+        Car car = new Car();
+        rs = statement.executeQuery("SELECT * FROM cars WHERE id = " + id);
+        try {
+            while (rs.next()) {
+                car.setId(rs.getInt("id"));
+                car.setBrand(rs.getString("brand"));
+                car.setModel(rs.getString("model"));
+                car.setYear(rs.getInt("year"));
+                car.setPrice(rs.getDouble("price"));
+            }
+            dbConnection.closeConnection();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return car;
+    }
+
+
+    public static void main(String[] args) throws SQLException {
+        Car car = new Car(0, "ttt", "mmmm", 2022, 2023);
+        DBCarServiceImpl dbCarService = new DBCarServiceImpl();
+        ConsoleOutputServiceImpl consoleOutputService = new ConsoleOutputServiceImpl();
+
+        System.out.println(dbCarService.createNewCar(MethodUtils.createCar()));
     }
 }
