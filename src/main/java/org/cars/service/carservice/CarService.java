@@ -1,6 +1,7 @@
 package org.cars.service.carservice;
 
 import org.cars.model.Car;
+import org.springframework.stereotype.Component;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -8,6 +9,8 @@ import java.util.List;
 /**
  * Интерфейс определяет методы для работы с данными базы данных автомобилей ( из БД, фалоф .txt, .json)
  */
+
+@Component
 public interface CarService {
 
     List<Car> sortByPrice() throws SQLException;

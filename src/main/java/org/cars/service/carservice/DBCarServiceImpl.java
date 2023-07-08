@@ -178,13 +178,4 @@ public class DBCarServiceImpl implements CarService {
         }
         return car;
     }
-
-
-    public static void main(String[] args) throws SQLException {
-        Car car = new Car(0, "ttt", "mmmm", 2022, 2023);
-        DBCarServiceImpl dbCarService = new DBCarServiceImpl();
-        ConsoleOutputServiceImpl consoleOutputService = new ConsoleOutputServiceImpl();
-
-        System.out.println(dbCarService.createNewCar(MethodUtils.createCar()));
-    }
 }

@@ -38,6 +38,7 @@ public class DBConnectionService {
     /**
      * Создает единственный экземпляр класса
      */
+
     public static DBConnectionService getInstance() {
         if (instance == null) {
             instance = new DBConnectionService();
