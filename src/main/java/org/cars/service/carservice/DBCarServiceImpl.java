@@ -1,13 +1,13 @@
 package org.cars.service.carservice;
 
 import org.cars.model.Car;
-import org.cars.service.consoleoutputservice.ConsoleOutputServiceImpl;
 import org.cars.service.dbconnectionservice.DBConnectionService;
 import org.cars.service.inoutservice.DBInOutServiceImpl;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -174,6 +174,7 @@ public class DBCarServiceImpl implements CarService {
         return car;
     }
 
+    //обновляет поля и возвращает обновленную car
     @Override
     public Car update(Car car, int id) throws SQLException {
         int idReturn = 0;
@@ -188,15 +189,5 @@ public class DBCarServiceImpl implements CarService {
             System.out.println(ex.getMessage());
         }
         return findCarById(idReturn);
-    }
-
-    public static void main(String[] args) throws SQLException {
-        Car car = new Car(0, "Запорожец", "555", 2000, 2500);
-        ConsoleOutputServiceImpl consoleOutputService = new ConsoleOutputServiceImpl();
-        DBCarServiceImpl dbCarService = new DBCarServiceImpl();
-        System.out.println(dbCarService.update(car, 7));
-        consoleOutputService.printCarFromTable(7);
-
-        System.out.println(dbCarService.findCarById(6));
     }
 }

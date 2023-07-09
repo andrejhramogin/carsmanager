@@ -1,9 +1,7 @@
 package org.cars.service.dbservice;
 
 import org.cars.model.Car;
-import org.cars.service.consoleoutputservice.ConsoleOutputServiceImpl;
 import org.cars.service.dbconnectionservice.DBConnectionService;
-import org.cars.utils.MethodUtils;
 
 import java.sql.Connection;
 import java.sql.SQLException;
