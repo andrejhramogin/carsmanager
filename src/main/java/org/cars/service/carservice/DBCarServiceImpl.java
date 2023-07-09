@@ -4,7 +4,6 @@ import org.cars.model.Car;
 import org.cars.service.consoleoutputservice.ConsoleOutputServiceImpl;
 import org.cars.service.dbconnectionservice.DBConnectionService;
 import org.cars.service.inoutservice.DBInOutServiceImpl;
-import org.cars.utils.MethodUtils;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
@@ -114,7 +113,7 @@ public class DBCarServiceImpl implements CarService {
         try {
             while (rs.next()) {
                 Car car = new Car();
-                car.setId(rs.getInt("id"));
+
                 car.setBrand(rs.getString("brand"));
                 car.setModel(rs.getString("model"));
                 car.setYear(rs.getInt("year"));
@@ -166,7 +165,6 @@ public class DBCarServiceImpl implements CarService {
         rs = statement.executeQuery("SELECT * FROM cars WHERE id = " + id);
         try {
             while (rs.next()) {
-                car.setId(rs.getInt("id"));
                 car.setBrand(rs.getString("brand"));
                 car.setModel(rs.getString("model"));
                 car.setYear(rs.getInt("year"));
@@ -177,5 +175,29 @@ public class DBCarServiceImpl implements CarService {
             System.out.println(ex.getMessage());
         }
         return car;
+    }
+
+    @Override
+    public Car update(Car car, int id) throws SQLException {
+        int idReturn = 0;
+        try {
+            rs = statement.executeQuery(String.format("UPDATE cars SET brand = '%s',  " +
+                            "model = '%s', year = '%d', price = '%f' WHERE id = %d RETURNING id",
+                    car.getBrand(), car.getModel(), car.getYear(), car.getPrice(), id));
+            while (rs.next()) {
+                idReturn = rs.getInt("id");
+            }
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return findCarById(idReturn);
+    }
+
+    public static void main(String[] args) throws SQLException {
+        Car car = new Car("Запорожец", "555", 2000, 2500);
+        ConsoleOutputServiceImpl consoleOutputService = new ConsoleOutputServiceImpl();
+        DBCarServiceImpl dbCarService = new DBCarServiceImpl();
+        System.out.println(dbCarService.update(car, 6));
+        consoleOutputService.printCarFromTable(6);
     }
 }

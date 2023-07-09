@@ -1,7 +1,7 @@
 package org.cars.model;
 
 public class Car {
-    private int id;
+//    private int id;
     private String brand;
     private String model;
     private int year;
@@ -10,21 +10,21 @@ public class Car {
     public Car() {
     }
 
-    public Car(int id, String brand, String model, int year, double price) {
-        this.id = id;
+    public Car( String brand, String model, int year, double price) {
+//        this.id = id;
         this.brand = brand;
         this.model = model;
         this.year = year;
         this.price = price;
     }
 
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
-    }
+//    public int getId() {
+//        return id;
+//    }
+//
+//    public void setId(int id) {
+//        this.id = id;
+//    }
 
     public String getBrand() {
         return brand;
@@ -59,8 +59,7 @@ public class Car {
     }
 
     public String toString() {
-        return ("id: " + id + ", " +
-                "Brand: " + brand + ", " +
+        return ("Brand: " + brand + ", " +
                 "Model: " + model + ", " +
                 "Year of manufacture: " + year + ", " +
                 "Price: " + price + ".");

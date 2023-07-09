@@ -32,13 +32,27 @@ public class ConsoleOutputServiceImpl {
 
     //выводит на консоль таблицу из DB
 
-    public void printTable() throws SQLException {
+    public void printAllTable() throws SQLException {
         DBConnectionService dbConnection = DBConnectionService.getInstance();
         Connection connection = dbConnection.newConnection();
         Statement statement = connection.createStatement();
         ResultSet rs = statement.executeQuery("SELECT * FROM cars");
         while (rs.next()) {
-            System.out.println("ID: " + rs.getInt("id") +
+            System.out.println("id: " + rs.getInt("id") +
+                    ", Brand: " + rs.getString("brand") +
+                    ", Model: " + rs.getString("model") +
+                    ", Year of manufacture: " + rs.getInt("year") +
+                    ", Price: " + rs.getDouble("price") + ".");
+        }
+    }
+
+    public void printCarFromTable(int id) throws SQLException {
+        DBConnectionService dbConnection = DBConnectionService.getInstance();
+        Connection connection = dbConnection.newConnection();
+        Statement statement = connection.createStatement();
+        ResultSet rs = statement.executeQuery("SELECT * FROM cars WHERE id = " + id);
+        while (rs.next()) {
+            System.out.println("id: " + rs.getInt("id") +
                     ", Brand: " + rs.getString("brand") +
                     ", Model: " + rs.getString("model") +
                     ", Year of manufacture: " + rs.getInt("year") +

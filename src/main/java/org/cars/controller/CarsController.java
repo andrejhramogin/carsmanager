@@ -4,36 +4,31 @@ import org.cars.model.Car;
 import org.cars.service.carservice.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
 import java.util.List;
 
-//@Slf4j
+@Slf4j
 @RestController
-@SpringBootApplication
 public class CarsController {
 
     //CRUD
-    private final CarService carService;
 
     @Autowired
-    public CarsController(@Qualifier("dBCarServiceImpl") CarService carService) {
-        this.carService = carService;
-    }
+//    @Qualifier("dBCarServiceImpl")
+    private CarService carService;
 
     //логика создания машины в БД и возвращение ее в ответе
     @PostMapping("/cars")
     public Car createCar(@RequestBody Car car) throws SQLException {
-
         return carService.createNewCar(car);
     }
 
     @PutMapping("/cars/{id}")
-    public Car updateCar(@RequestBody Car car, @PathVariable int id) {
+    public Car updateCar(@RequestBody Car car, @PathVariable int id) throws SQLException {
         // логика обнволения машины по id в БД и возвращение ее в ответе
-        return null;
+        return carService.update(car, id);
     }
 
     //вернуть список всех машин которые лежат в бд

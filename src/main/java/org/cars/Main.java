@@ -2,14 +2,13 @@ package org.cars;
 
 import org.cars.controller.CarsController;
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 
-import java.io.IOException;
-import java.sql.SQLException;
-
+@SpringBootApplication
 public class Main {
     public static void main(String[] args)  {
-        ConfigurableApplicationContext context = SpringApplication.run(CarsController.class, args);
+        ConfigurableApplicationContext context = SpringApplication.run(Main.class, args);
 
     }
 }

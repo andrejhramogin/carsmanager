@@ -10,7 +10,6 @@ import java.util.List;
  * Интерфейс определяет методы для работы с данными базы данных автомобилей ( из БД, фалоф .txt, .json)
  */
 
-@Component
 public interface CarService {
 
     List<Car> sortByPrice() throws SQLException;
@@ -40,4 +39,6 @@ public interface CarService {
     Car createNewCar(Car car) throws SQLException;
 
     Car findCarById(int id) throws SQLException;
+
+    Car update(Car car, int id) throws SQLException;
 }
