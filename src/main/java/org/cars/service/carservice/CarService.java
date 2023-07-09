@@ -30,8 +30,6 @@ public interface CarService {
 
     List<Car> findCarInPriceDiapason(double min, double max) throws SQLException;
 
-    void setList(List<Car> list);
-
     List<Car> getAllCars() throws SQLException;
 
     void deleteCarById(int num) throws SQLException;

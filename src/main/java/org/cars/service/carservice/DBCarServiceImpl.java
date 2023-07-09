@@ -101,10 +101,6 @@ public class DBCarServiceImpl implements CarService {
         return dbInOutService.getData("SELECT * FROM cars WHERE price between " + min + " and " + max + " order by price");
     }
 
-    @Override
-    public void setList(List<Car> list) {
-    }
-
     //Выводит весь список машин
     @Override
     public List<Car> getAllCars() throws SQLException {
@@ -113,7 +109,7 @@ public class DBCarServiceImpl implements CarService {
         try {
             while (rs.next()) {
                 Car car = new Car();
-
+                car.setId(rs.getInt("id"));
                 car.setBrand(rs.getString("brand"));
                 car.setModel(rs.getString("model"));
                 car.setYear(rs.getInt("year"));
@@ -165,6 +161,7 @@ public class DBCarServiceImpl implements CarService {
         rs = statement.executeQuery("SELECT * FROM cars WHERE id = " + id);
         try {
             while (rs.next()) {
+                car.setId(rs.getInt("id"));
                 car.setBrand(rs.getString("brand"));
                 car.setModel(rs.getString("model"));
                 car.setYear(rs.getInt("year"));
@@ -194,10 +191,12 @@ public class DBCarServiceImpl implements CarService {
     }
 
     public static void main(String[] args) throws SQLException {
-        Car car = new Car("Запорожец", "555", 2000, 2500);
+        Car car = new Car(0, "Запорожец", "555", 2000, 2500);
         ConsoleOutputServiceImpl consoleOutputService = new ConsoleOutputServiceImpl();
         DBCarServiceImpl dbCarService = new DBCarServiceImpl();
-        System.out.println(dbCarService.update(car, 6));
-        consoleOutputService.printCarFromTable(6);
+        System.out.println(dbCarService.update(car, 7));
+        consoleOutputService.printCarFromTable(7);
+
+        System.out.println(dbCarService.findCarById(6));
     }
 }

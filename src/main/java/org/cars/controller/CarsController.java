@@ -3,13 +3,12 @@ package org.cars.controller;
 import org.cars.model.Car;
 import org.cars.service.carservice.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
 import java.util.List;
 
-@Slf4j
+
 @RestController
 public class CarsController {
 

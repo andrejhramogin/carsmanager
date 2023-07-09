@@ -17,17 +17,17 @@ public class MethodUtils {
     //создает List<Car> как тестовые данные
     public static List<Car> createCarList() {
         return new ArrayList<>(Arrays.asList(
-                new Car("Toyota", "Camry", 2010, 10000.0),
-                new Car("Toyota", "Camry", 2012, 12000.5),
-                new Car("Toyota", "Camry", 2014, 14000.6),
-                new Car("Toyota", "Solara", 2003, 6000.8),
-                new Car("Toyota", "Solara", 2013, 16000.0),
-                new Car("BMW", "320", 2003, 3000.8),
-                new Car("BMW", "520", 2013, 3000.8),
-                new Car("BMW", "720", 2015, 16000.0),
-                new Car("Opel", "Astra", 2003, 4000.8),
-                new Car("Opel", "Corsa", 2020, 13000.8),
-                new Car("Opel", "Zafira", 2019, 11000)));
+                new Car(0,"Toyota", "Camry", 2010, 10000.0),
+                new Car(0,"Toyota", "Camry", 2012, 12000.5),
+                new Car(0,"Toyota", "Camry", 2014, 14000.6),
+                new Car(0,"Toyota", "Solara", 2003, 6000.8),
+                new Car(0,"Toyota", "Solara", 2013, 16000.0),
+                new Car(0,"BMW", "320", 2003, 3000.8),
+                new Car(0,"BMW", "520", 2013, 3000.8),
+                new Car(0,"BMW", "720", 2015, 16000.0),
+                new Car(0,"Opel", "Astra", 2003, 4000.8),
+                new Car(0,"Opel", "Corsa", 2020, 13000.8),
+                new Car(0,"Opel", "Zafira", 2019, 11000)));
     }
 
 
@@ -82,6 +82,6 @@ public class MethodUtils {
         int year = getInteger();
         System.out.println("Price:");
         double price = getDouble();
-        return new Car(brand, model, year, price);
+        return new Car(id, brand, model, year, price);
     }
 }
