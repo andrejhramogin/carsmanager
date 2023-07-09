@@ -1,7 +1,6 @@
 package org.cars.service.dbconnectionservice;
 
 import org.postgresql.ds.PGPoolingDataSource;
-import org.springframework.stereotype.Component;
 
 import java.sql.*;
 
@@ -39,6 +38,7 @@ public class DBConnectionService {
     /**
      * Создает единственный экземпляр класса
      */
+
     public static DBConnectionService getInstance() {
         if (instance == null) {
             instance = new DBConnectionService();

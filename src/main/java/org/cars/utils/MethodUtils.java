@@ -70,8 +70,9 @@ public class MethodUtils {
         return d;
     }
 
-    //создает новый экземпляр Car
+//    создает новый экземпляр Car
     public static Car createCar() {
+        int id = 0;
         Scanner scanner = new Scanner(System.in);
         System.out.println("Brand:");
         String brand = scanner.nextLine();
