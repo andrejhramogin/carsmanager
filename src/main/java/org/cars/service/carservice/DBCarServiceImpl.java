@@ -1,28 +1,30 @@
 package org.cars.service.carservice;
 
 import org.cars.model.Car;
+import org.cars.service.consoleoutputservice.ConsoleOutputServiceImpl;
 import org.cars.service.dbconnectionservice.DBConnectionService;
 import org.cars.service.inoutservice.DBInOutServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 /**
  * Имплементирует интерфейс CarService
  * Переопределяет методы интерфейса CarService
  */
-
 @Component("dBCarServiceImpl")
 public class DBCarServiceImpl implements CarService {
 
-    DBConnectionService dbConnection = DBConnectionService.getInstance();
-    DBInOutServiceImpl dbInOutService = new DBInOutServiceImpl();
-    Connection connection = dbConnection.newConnection();
-    Statement statement = connection.createStatement();
-    ResultSet rs;
+    private static final Logger logger =  LoggerFactory.getLogger(DBCarServiceImpl.class);
+    private DBConnectionService dbConnection = DBConnectionService.getInstance();
+    private DBInOutServiceImpl dbInOutService = new DBInOutServiceImpl();
+    private Connection connection = dbConnection.newConnection();
+    private Statement statement = connection.createStatement();
+    private ResultSet rs;
 
     public DBCarServiceImpl() throws SQLException {
     }
@@ -105,7 +107,7 @@ public class DBCarServiceImpl implements CarService {
     @Override
     public List<Car> getAllCars() throws SQLException {
         List<Car> list = new ArrayList<>();
-        rs = statement.executeQuery("SELECT * FROM cars");
+        rs = statement.executeQuery("SELECT * FROM cars ORDER by id");
         try {
             while (rs.next()) {
                 Car car = new Car();
@@ -147,6 +149,7 @@ public class DBCarServiceImpl implements CarService {
             while (rs.next()) {
                 id = rs.getInt("id");
             }
+            logger.info("id of new car is:  {}", id);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
