@@ -16,9 +16,7 @@ import java.sql.Statement;
  */
 
 public class DBService {
-    @Autowired
-    DBConnectionService dbConnection;
-//    = DBConnectionService.getInstance();
+    DBConnectionService dbConnection = DBConnectionService.getInstance();
     Connection connection = dbConnection.newConnection();
     Statement statement = connection.createStatement();
 
@@ -45,7 +43,7 @@ public class DBService {
     //добавляет новый Car в таблицу.
     public void addCarToTable(Car car) {
         try {
-            statement.executeQuery(String.format("INSERT INTO cars (brand, model, year, price) VALUES ('%s', '%s', '%d', '%f') ",
+            statement.executeQuery(String.format("INSERT INTO cars2 (brand, model, year, price) VALUES ('%s', '%s', '%d', '%f') ",
                     car.getBrand(), car.getModel(), car.getYear(), car.getPrice()));
             System.out.println("Автомобиль добавлен в таблицу.");
             dbConnection.closeConnection();
