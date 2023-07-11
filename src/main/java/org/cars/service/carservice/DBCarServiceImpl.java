@@ -4,6 +4,8 @@ import org.cars.model.Car;
 import org.cars.service.consoleoutputservice.ConsoleOutputServiceImpl;
 import org.cars.service.dbconnectionservice.DBConnectionService;
 import org.cars.service.inoutservice.DBInOutServiceImpl;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
 import java.sql.*;
@@ -14,15 +16,15 @@ import java.util.List;
  * Имплементирует интерфейс CarService
  * Переопределяет методы интерфейса CarService
  */
-
 @Component("dBCarServiceImpl")
 public class DBCarServiceImpl implements CarService {
 
-    DBConnectionService dbConnection = DBConnectionService.getInstance();
-    DBInOutServiceImpl dbInOutService = new DBInOutServiceImpl();
-    Connection connection = dbConnection.newConnection();
-    Statement statement = connection.createStatement();
-    ResultSet rs;
+    private static final Logger logger =  LoggerFactory.getLogger(DBCarServiceImpl.class);
+    private DBConnectionService dbConnection = DBConnectionService.getInstance();
+    private DBInOutServiceImpl dbInOutService = new DBInOutServiceImpl();
+    private Connection connection = dbConnection.newConnection();
+    private Statement statement = connection.createStatement();
+    private ResultSet rs;
 
     public DBCarServiceImpl() throws SQLException {
     }
@@ -105,7 +107,7 @@ public class DBCarServiceImpl implements CarService {
     @Override
     public List<Car> getAllCars() throws SQLException {
         List<Car> list = new ArrayList<>();
-        rs = statement.executeQuery("SELECT * FROM cars");
+        rs = statement.executeQuery("SELECT * FROM cars ORDER by id");
         try {
             while (rs.next()) {
                 Car car = new Car();
@@ -147,6 +149,7 @@ public class DBCarServiceImpl implements CarService {
             while (rs.next()) {
                 id = rs.getInt("id");
             }
+            logger.info("id of new car is:  {}", id);
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
@@ -174,6 +177,7 @@ public class DBCarServiceImpl implements CarService {
         return car;
     }
 
+    //обновляет поля и возвращает обновленную car
     @Override
     public Car update(Car car, int id) throws SQLException {
         int idReturn = 0;
@@ -188,15 +192,5 @@ public class DBCarServiceImpl implements CarService {
             System.out.println(ex.getMessage());
         }
         return findCarById(idReturn);
-    }
-
-    public static void main(String[] args) throws SQLException {
-        Car car = new Car(0, "Запорожец", "555", 2000, 2500);
-        ConsoleOutputServiceImpl consoleOutputService = new ConsoleOutputServiceImpl();
-        DBCarServiceImpl dbCarService = new DBCarServiceImpl();
-        System.out.println(dbCarService.update(car, 7));
-        consoleOutputService.printCarFromTable(7);
-
-        System.out.println(dbCarService.findCarById(6));
     }
 }

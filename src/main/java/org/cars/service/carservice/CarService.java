@@ -1,7 +1,6 @@
 package org.cars.service.carservice;
 
 import org.cars.model.Car;
-import org.springframework.stereotype.Component;
 
 import java.sql.SQLException;
 import java.util.List;

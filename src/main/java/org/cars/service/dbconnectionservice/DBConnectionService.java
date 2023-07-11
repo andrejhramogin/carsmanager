@@ -1,6 +1,7 @@
 package org.cars.service.dbconnectionservice;
 
 import org.postgresql.ds.PGPoolingDataSource;
+import org.springframework.stereotype.Component;
 
 import java.sql.*;
 
@@ -12,7 +13,7 @@ import java.sql.*;
  * Закрывает подключение к DB
  */
 
-//@Component("dBConnectionService")
+@Component("dBConnectionService")
 public class DBConnectionService {
 
     private static DBConnectionService instance;

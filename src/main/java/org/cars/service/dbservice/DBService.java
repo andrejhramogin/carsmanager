@@ -1,9 +1,8 @@
 package org.cars.service.dbservice;
 
 import org.cars.model.Car;
-import org.cars.service.consoleoutputservice.ConsoleOutputServiceImpl;
 import org.cars.service.dbconnectionservice.DBConnectionService;
-import org.cars.utils.MethodUtils;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -17,8 +16,9 @@ import java.sql.Statement;
  */
 
 public class DBService {
-
-    DBConnectionService dbConnection = DBConnectionService.getInstance();
+    @Autowired
+    DBConnectionService dbConnection;
+//    = DBConnectionService.getInstance();
     Connection connection = dbConnection.newConnection();
     Statement statement = connection.createStatement();
 
@@ -45,7 +45,7 @@ public class DBService {
     //добавляет новый Car в таблицу.
     public void addCarToTable(Car car) {
         try {
-            statement.executeUpdate(String.format("INSERT INTO cars (brand, model, year, price) VALUES ('%s', '%s', '%d', '%f') ",
+            statement.executeQuery(String.format("INSERT INTO cars (brand, model, year, price) VALUES ('%s', '%s', '%d', '%f') ",
                     car.getBrand(), car.getModel(), car.getYear(), car.getPrice()));
             System.out.println("Автомобиль добавлен в таблицу.");
             dbConnection.closeConnection();
@@ -57,7 +57,7 @@ public class DBService {
     //удаляет из таблицы авто по номеру ID.
     public void deleteCarFromTable(int num) throws SQLException {
         try {
-            statement.executeUpdate("DELETE FROM cars WHERE id = " + num);
+            statement.executeQuery("DELETE FROM cars WHERE id = " + num);
             System.out.println("Строка с номером ID = " + num + "удалена из таблицы");
             dbConnection.closeConnection();
         } catch (Exception ex) {
