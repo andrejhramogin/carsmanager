@@ -38,4 +38,6 @@ public interface CarService {
     Car findCarById(int id) throws SQLException;
 
     Car update(Car car, int id) throws SQLException;
+
+    public List<Car> getByParam(String sortBy, String sortDirection, String filter) throws SQLException;
 }

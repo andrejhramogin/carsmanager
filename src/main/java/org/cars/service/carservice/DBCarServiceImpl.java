@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 
 import java.sql.*;
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -19,7 +20,7 @@ import java.util.List;
 @Component("dBCarServiceImpl")
 public class DBCarServiceImpl implements CarService {
 
-    private static final Logger logger =  LoggerFactory.getLogger(DBCarServiceImpl.class);
+    private static final Logger logger = LoggerFactory.getLogger(DBCarServiceImpl.class);
     private DBConnectionService dbConnection = DBConnectionService.getInstance();
     private DBInOutServiceImpl dbInOutService = new DBInOutServiceImpl();
     private Connection connection = dbConnection.newConnection();
@@ -192,5 +193,42 @@ public class DBCarServiceImpl implements CarService {
             System.out.println(ex.getMessage());
         }
         return findCarById(idReturn);
+    }
+
+    //Выводит список машин по задаваемым параметрам (@RequestParam ("sortBy") String sortBy,
+    //                               @RequestParam ("sortDirection") String sortDirection,
+    //                               @RequestParam ("filter") String filter
+
+    @Override
+    public List<Car> getByParam(String sortBy, String sortDirection, String filter) throws SQLException {
+        List<Car> list = new ArrayList<>();
+        String[] queryArr = filter.split("\\.");
+        String filterParam = queryArr[1];
+        int value = Integer.parseInt(queryArr[2]);
+        String equality = null;
+        if (queryArr[0].equals("not_equals")) {
+            equality = "!=";
+        } else if (queryArr[0].equals("equals")) {
+            equality = "=";
+        }
+
+        String query = "SELECT * FROM cars WHERE " + filterParam + " " + equality + " " + value + " ORDER BY " +
+                sortBy + " " + sortDirection;
+        rs = statement.executeQuery(query);
+        try {
+            while (rs.next()) {
+                Car car = new Car();
+                car.setId(rs.getInt("id"));
+                car.setBrand(rs.getString("brand"));
+                car.setModel(rs.getString("model"));
+                car.setYear(rs.getInt("year"));
+                car.setPrice(rs.getDouble("price"));
+                list.add(car);
+            }
+            dbConnection.closeConnection();
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
+        }
+        return list;
     }
 }
