@@ -12,6 +12,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Objects;
 
 /**
  * Имплементирует интерфейс CarService
@@ -207,18 +208,24 @@ public class DBCarServiceImpl implements CarService {
     @Override
     public List<Car> getByParam(String sortBy, String sortDirection, String filter) throws SQLException {
         List<Car> list = new ArrayList<>();
-        String[] queryArr = filter.split("\\.");
-        String filterParam = queryArr[1];
-        String value = queryArr[2];
-        String equality = null;
-        if (queryArr[0].equals("not_equals")) {
-            equality = "!=";
-        } else if (queryArr[0].equals("equals")) {
-            equality = "=";
-        }
+        String query;
 
-        String query = "SELECT * FROM cars WHERE " + filterParam + " " + equality + " " + value + " ORDER BY " +
-                sortBy + " " + sortDirection;
+        if (Objects.equals(filter, "")) {
+            query = "SELECT * FROM cars ORDER BY " + sortBy;
+        } else {
+            String[] queryArr = filter.split("\\.");
+            String equality = null;
+            if (queryArr[0].equals("not_equals")) {
+                equality = "!=";
+            } else if (queryArr[0].equals("equals")) {
+                equality = "=";
+            }
+            String filterParam = queryArr[1];
+            String value = queryArr[2];
+
+            query = "SELECT * FROM cars WHERE " + filterParam + " " + equality + " " + value + " ORDER BY " +
+                    sortBy + " " + sortDirection;
+        }
         rs = statement.executeQuery(query);
         try {
             while (rs.next()) {
