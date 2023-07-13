@@ -57,18 +57,22 @@ public class CarsController {
     }
 
     /**
-     * Получение cars из БД.
+     * Получение cars из БД по дополнительным параметрам фильтрации и сортировки.
      *
      * @return Ответ - List<Car> - список car из таблицы 'cars' в БД.
      */
     @GetMapping("/cars")
-    @Operation(summary = "Get cars", description = "Get cars according from table 'cars'")
+    @Operation(summary = "Get cars", description = "Get cars according to the specified parameters from table 'cars'")
     @ApiResponse(responseCode = "200", description = "Cars from the table 'cars' were received successfully")
     @ApiResponse(responseCode = "400", description = "Bad request")
     @ApiResponse(responseCode = "500", description = "Internal server error")
-    public List<Car> getCarsByRequestParam() throws SQLException {
-        logger.info("Сars have been received.");
-        return carService.getAllCars();
+    public List<Car> getCarsByRequestParam(
+            @RequestParam("sortBy") String sortBy,
+            @RequestParam("sortDirection") String sortDirection,
+            @RequestParam("filter") String filter)
+            throws SQLException {
+        logger.info("Сars matching the request have been received.");
+        return carService.getByParam(sortBy, sortDirection, filter);
     }
 
     /**
