@@ -143,10 +143,15 @@ public class DBCarServiceImpl implements CarService {
     @Override
     public Car createNewCar(Car car) throws SQLException {
         int id = 0;
+        String brand = car.getBrand();
+        String model = car.getModel();
+        int year = car.getYear();
+        double price = car.getPrice();
+        String query = "INSERT INTO cars (brand, model, year, price) VALUES ('"+brand+"', '"+model+"', "+ year +", " + price + ") RETURNING id";
         try {
-            rs = statement.executeQuery(String.format("INSERT INTO cars (brand, model, year, price) VALUES " +
-                            " ('%s', '%s', '%d', '%f') RETURNING id",
-                    car.getBrand(), car.getModel(), car.getYear(), car.getPrice()));
+
+            rs = statement.executeQuery( query);
+
             while (rs.next()) {
                 id = rs.getInt("id");
             }
