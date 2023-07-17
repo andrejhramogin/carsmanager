@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <databaseChangeLog>
-    <logicalFilePath>
-        db/changelog/db.changelog-master.xml
-    </logicalFilePath>
+<!--    <logicalFilePath>-->
+<!--        db/changelog/db.changelog-master.xml-->
+<!--    </logicalFilePath>-->
     <changeSet author="AndrejHramogin" id="1">
         <createTable tableName="cars">
 
