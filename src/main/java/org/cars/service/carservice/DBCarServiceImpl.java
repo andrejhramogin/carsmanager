@@ -1,16 +1,16 @@
 package org.cars.service.carservice;
 
 import org.cars.model.Car;
-import org.cars.service.consoleoutputservice.ConsoleOutputServiceImpl;
 import org.cars.service.dbconnectionservice.DBConnectionService;
 import org.cars.service.inoutservice.DBInOutServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import repository.CarRepository;
 
 import java.sql.*;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Objects;
 
@@ -27,6 +27,9 @@ public class DBCarServiceImpl implements CarService {
     private Connection connection = dbConnection.newConnection();
     private Statement statement = connection.createStatement();
     private ResultSet rs;
+
+    @Autowired
+    private CarRepository carRepository;
 
     public DBCarServiceImpl() throws SQLException {
     }
@@ -141,27 +144,8 @@ public class DBCarServiceImpl implements CarService {
     }
 
     //создаёт новое авто в таблице "cars", возвращает его по id, которое возвращается через "RETURNING id".
-    @Override
-    public Car createNewCar(Car car) throws SQLException {
-        int id = 0;
-        String brand = car.getBrand();
-        String model = car.getModel();
-        int year = car.getYear();
-        double price = car.getPrice();
-        String query = "INSERT INTO cars (brand, model, year, price) VALUES ('"+brand+"', '"+model+"', "+ year +", " + price + ") RETURNING id";
-        try {
-
-            rs = statement.executeQuery( query);
-
-            while (rs.next()) {
-                id = rs.getInt("id");
-            }
-            logger.info("id of new car is:  {}", id);
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-        dbConnection.closeConnection();
-        return findCarById(id);
+    public entity.Car createNewCar(entity.Car car) throws SQLException {
+        return carRepository.save(car);
     }
 
     //находит в БД и возвращает авто по id.

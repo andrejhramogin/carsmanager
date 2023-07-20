@@ -33,7 +33,7 @@ public interface CarService {
 
     void deleteCarById(int num) throws SQLException;
 
-    Car createNewCar(Car car) throws SQLException;
+    entity.Car createNewCar(entity.Car car) throws SQLException;
 
     Car findCarById(int id) throws SQLException;
 
