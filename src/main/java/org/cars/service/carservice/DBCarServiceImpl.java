@@ -133,14 +133,15 @@ public class DBCarServiceImpl implements CarService {
     //удаление авто по id
     @Override
     public void deleteCarById(int id) throws SQLException {
-        try {
-            statement.executeUpdate("DELETE FROM cars WHERE id = " + id);
-
-            dbConnection.closeConnection();
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-        System.out.println("Строка с номером ID = " + id + " удалена из таблицы");
+//        try {
+//            statement.executeUpdate("DELETE FROM cars WHERE id = " + id);
+//
+//            dbConnection.closeConnection();
+//        } catch (Exception ex) {
+//            System.out.println(ex.getMessage());
+//        }
+//        System.out.println("Строка с номером ID = " + id + " удалена из таблицы");
+        carRepository.deleteById(id);
     }
 
     //создаёт новое авто в таблице "cars", возвращает его по id, которое возвращается через "RETURNING id".
