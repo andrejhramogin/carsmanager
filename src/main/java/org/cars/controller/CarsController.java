@@ -34,7 +34,7 @@ public class CarsController {
     @ApiResponse(responseCode = "200", description = "A car was created successfully")
     @ApiResponse(responseCode = "400", description = "Bad request")
     @ApiResponse(responseCode = "500", description = "Internal server error")
-    public entity.Car createCar(@RequestBody entity.Car car) throws SQLException {
+    public org.cars.entity.Car createCar(@RequestBody org.cars.entity.Car car) throws SQLException {
         logger.info("create new car: + {}.", car);
         return carService.createNewCar(car);
     }

@@ -7,7 +7,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import repository.CarRepository;
+import org.cars.repository.CarRepository;
 
 import java.sql.*;
 import java.util.ArrayList;
@@ -144,7 +144,7 @@ public class DBCarServiceImpl implements CarService {
     }
 
     //создаёт новое авто в таблице "cars", возвращает его по id, которое возвращается через "RETURNING id".
-    public entity.Car createNewCar(entity.Car car) throws SQLException {
+    public org.cars.entity.Car createNewCar(org.cars.entity.Car car) throws SQLException {
         return carRepository.save(car);
     }
 

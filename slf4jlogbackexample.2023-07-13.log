@@ -63,8 +63,8 @@
 13.07.2023 06:07:55.892 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 06:07:55.899 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration' via constructor to bean named 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 06:07:55.910 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'errorPageCustomizer' via factory method to bean named 'dispatcherServletRegistration'
-13.07.2023 06:07:56.054 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
-13.07.2023 06:07:56.055 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 06:07:56.054 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 06:07:56.055 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
 13.07.2023 06:07:56.056 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
 13.07.2023 06:07:56.111 [main] INFO   o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
 13.07.2023 06:07:56.139 [main] INFO   o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
@@ -841,7 +841,7 @@ Negative matches:
 
    ElasticsearchRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.repository.ElasticsearchRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.org.cars.repository.ElasticsearchRepository' (OnClassCondition)
 
    ElasticsearchRestClientAutoConfiguration:
       Did not match:
@@ -977,7 +977,7 @@ Negative matches:
 
    JdbcRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.org.cars.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
 
    JdbcTemplateAutoConfiguration:
       Did not match:
@@ -1011,7 +1011,7 @@ Negative matches:
 
    JpaRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.repository.JpaRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.org.cars.repository.JpaRepository' (OnClassCondition)
 
    JsonbAutoConfiguration:
       Did not match:
@@ -1035,7 +1035,7 @@ Negative matches:
 
    LdapRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.repository.LdapRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.org.cars.repository.LdapRepository' (OnClassCondition)
 
    LiquibaseAutoConfiguration:
       Did not match:
@@ -1243,7 +1243,7 @@ Negative matches:
 
    RedisRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.repository.configuration.EnableRedisRepositories' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.org.cars.repository.configuration.EnableRedisRepositories' (OnClassCondition)
 
    RepositoryRestMvcAutoConfiguration:
       Did not match:
@@ -1583,8 +1583,8 @@ Unconditional classes:
 13.07.2023 06:09:56.091 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 06:09:56.098 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration' via constructor to bean named 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 06:09:56.109 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'errorPageCustomizer' via factory method to bean named 'dispatcherServletRegistration'
-13.07.2023 06:09:56.233 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
-13.07.2023 06:09:56.233 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 06:09:56.233 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 06:09:56.233 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
 13.07.2023 06:09:56.234 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
 13.07.2023 06:09:56.271 [main] INFO   o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
 13.07.2023 06:09:56.288 [main] INFO   o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
@@ -2361,7 +2361,7 @@ Negative matches:
 
    ElasticsearchRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.repository.ElasticsearchRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.org.cars.repository.ElasticsearchRepository' (OnClassCondition)
 
    ElasticsearchRestClientAutoConfiguration:
       Did not match:
@@ -2497,7 +2497,7 @@ Negative matches:
 
    JdbcRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.org.cars.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
 
    JdbcTemplateAutoConfiguration:
       Did not match:
@@ -2531,7 +2531,7 @@ Negative matches:
 
    JpaRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.repository.JpaRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.org.cars.repository.JpaRepository' (OnClassCondition)
 
    JsonbAutoConfiguration:
       Did not match:
@@ -2555,7 +2555,7 @@ Negative matches:
 
    LdapRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.repository.LdapRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.org.cars.repository.LdapRepository' (OnClassCondition)
 
    LiquibaseAutoConfiguration:
       Did not match:
@@ -2763,7 +2763,7 @@ Negative matches:
 
    RedisRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.repository.configuration.EnableRedisRepositories' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.org.cars.repository.configuration.EnableRedisRepositories' (OnClassCondition)
 
    RepositoryRestMvcAutoConfiguration:
       Did not match:
@@ -3103,8 +3103,8 @@ Unconditional classes:
 13.07.2023 06:17:58.347 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 06:17:58.354 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration' via constructor to bean named 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 06:17:58.363 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'errorPageCustomizer' via factory method to bean named 'dispatcherServletRegistration'
-13.07.2023 06:17:58.508 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
-13.07.2023 06:17:58.509 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 06:17:58.508 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 06:17:58.509 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
 13.07.2023 06:17:58.512 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
 13.07.2023 06:17:58.548 [main] INFO   o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
 13.07.2023 06:17:58.568 [main] INFO   o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
@@ -3881,7 +3881,7 @@ Negative matches:
 
    ElasticsearchRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.repository.ElasticsearchRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.org.cars.repository.ElasticsearchRepository' (OnClassCondition)
 
    ElasticsearchRestClientAutoConfiguration:
       Did not match:
@@ -4017,7 +4017,7 @@ Negative matches:
 
    JdbcRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.org.cars.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
 
    JdbcTemplateAutoConfiguration:
       Did not match:
@@ -4051,7 +4051,7 @@ Negative matches:
 
    JpaRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.repository.JpaRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.org.cars.repository.JpaRepository' (OnClassCondition)
 
    JsonbAutoConfiguration:
       Did not match:
@@ -4075,7 +4075,7 @@ Negative matches:
 
    LdapRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.repository.LdapRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.org.cars.repository.LdapRepository' (OnClassCondition)
 
    LiquibaseAutoConfiguration:
       Did not match:
@@ -4283,7 +4283,7 @@ Negative matches:
 
    RedisRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.repository.configuration.EnableRedisRepositories' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.org.cars.repository.configuration.EnableRedisRepositories' (OnClassCondition)
 
    RepositoryRestMvcAutoConfiguration:
       Did not match:
@@ -4636,8 +4636,8 @@ Unconditional classes:
 13.07.2023 06:17:58.347 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 06:17:58.354 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration' via constructor to bean named 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 06:17:58.363 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'errorPageCustomizer' via factory method to bean named 'dispatcherServletRegistration'
-13.07.2023 06:17:58.508 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
-13.07.2023 06:17:58.509 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 06:17:58.508 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 06:17:58.509 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
 13.07.2023 06:17:58.512 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
 13.07.2023 06:17:58.548 [main] INFO   o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
 13.07.2023 06:17:58.568 [main] INFO   o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
@@ -5414,7 +5414,7 @@ Negative matches:
 
    ElasticsearchRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.repository.ElasticsearchRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.org.cars.repository.ElasticsearchRepository' (OnClassCondition)
 
    ElasticsearchRestClientAutoConfiguration:
       Did not match:
@@ -5550,7 +5550,7 @@ Negative matches:
 
    JdbcRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.org.cars.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
 
    JdbcTemplateAutoConfiguration:
       Did not match:
@@ -5584,7 +5584,7 @@ Negative matches:
 
    JpaRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.repository.JpaRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.org.cars.repository.JpaRepository' (OnClassCondition)
 
    JsonbAutoConfiguration:
       Did not match:
@@ -5608,7 +5608,7 @@ Negative matches:
 
    LdapRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.repository.LdapRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.org.cars.repository.LdapRepository' (OnClassCondition)
 
    LiquibaseAutoConfiguration:
       Did not match:
@@ -5816,7 +5816,7 @@ Negative matches:
 
    RedisRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.repository.configuration.EnableRedisRepositories' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.org.cars.repository.configuration.EnableRedisRepositories' (OnClassCondition)
 
    RepositoryRestMvcAutoConfiguration:
       Did not match:
@@ -6169,8 +6169,8 @@ Unconditional classes:
 13.07.2023 18:13:52.274 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 18:13:52.282 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration' via constructor to bean named 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 18:13:52.294 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'errorPageCustomizer' via factory method to bean named 'dispatcherServletRegistration'
-13.07.2023 18:13:52.440 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
-13.07.2023 18:13:52.442 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 18:13:52.440 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 18:13:52.442 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
 13.07.2023 18:13:52.444 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
 13.07.2023 18:13:52.493 [main] INFO   o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
 13.07.2023 18:13:52.518 [main] INFO   o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
@@ -6947,7 +6947,7 @@ Negative matches:
 
    ElasticsearchRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.repository.ElasticsearchRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.org.cars.repository.ElasticsearchRepository' (OnClassCondition)
 
    ElasticsearchRestClientAutoConfiguration:
       Did not match:
@@ -7083,7 +7083,7 @@ Negative matches:
 
    JdbcRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.org.cars.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
 
    JdbcTemplateAutoConfiguration:
       Did not match:
@@ -7117,7 +7117,7 @@ Negative matches:
 
    JpaRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.repository.JpaRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.org.cars.repository.JpaRepository' (OnClassCondition)
 
    JsonbAutoConfiguration:
       Did not match:
@@ -7141,7 +7141,7 @@ Negative matches:
 
    LdapRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.repository.LdapRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.org.cars.repository.LdapRepository' (OnClassCondition)
 
    LiquibaseAutoConfiguration:
       Did not match:
@@ -7349,7 +7349,7 @@ Negative matches:
 
    RedisRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.repository.configuration.EnableRedisRepositories' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.org.cars.repository.configuration.EnableRedisRepositories' (OnClassCondition)
 
    RepositoryRestMvcAutoConfiguration:
       Did not match:
@@ -8106,8 +8106,8 @@ java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
 13.07.2023 19:13:33.780 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 19:13:33.787 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration' via constructor to bean named 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 19:13:33.797 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'errorPageCustomizer' via factory method to bean named 'dispatcherServletRegistration'
-13.07.2023 19:13:33.978 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
-13.07.2023 19:13:33.979 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 19:13:33.978 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 19:13:33.979 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
 13.07.2023 19:13:33.979 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
 13.07.2023 19:13:34.022 [main] INFO   o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
 13.07.2023 19:13:34.044 [main] INFO   o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
@@ -8884,7 +8884,7 @@ Negative matches:
 
    ElasticsearchRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.repository.ElasticsearchRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.org.cars.repository.ElasticsearchRepository' (OnClassCondition)
 
    ElasticsearchRestClientAutoConfiguration:
       Did not match:
@@ -9020,7 +9020,7 @@ Negative matches:
 
    JdbcRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.org.cars.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
 
    JdbcTemplateAutoConfiguration:
       Did not match:
@@ -9054,7 +9054,7 @@ Negative matches:
 
    JpaRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.repository.JpaRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.org.cars.repository.JpaRepository' (OnClassCondition)
 
    JsonbAutoConfiguration:
       Did not match:
@@ -9078,7 +9078,7 @@ Negative matches:
 
    LdapRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.repository.LdapRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.org.cars.repository.LdapRepository' (OnClassCondition)
 
    LiquibaseAutoConfiguration:
       Did not match:
@@ -9286,7 +9286,7 @@ Negative matches:
 
    RedisRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.repository.configuration.EnableRedisRepositories' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.org.cars.repository.configuration.EnableRedisRepositories' (OnClassCondition)
 
    RepositoryRestMvcAutoConfiguration:
       Did not match:
@@ -9627,8 +9627,8 @@ Unconditional classes:
 13.07.2023 19:18:50.349 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 19:18:50.356 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration' via constructor to bean named 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 19:18:50.368 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'errorPageCustomizer' via factory method to bean named 'dispatcherServletRegistration'
-13.07.2023 19:18:50.530 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
-13.07.2023 19:18:50.530 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 19:18:50.530 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 19:18:50.530 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
 13.07.2023 19:18:50.532 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
 13.07.2023 19:18:50.609 [main] INFO   o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
 13.07.2023 19:18:50.626 [main] INFO   o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
@@ -10405,7 +10405,7 @@ Negative matches:
 
    ElasticsearchRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.repository.ElasticsearchRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.org.cars.repository.ElasticsearchRepository' (OnClassCondition)
 
    ElasticsearchRestClientAutoConfiguration:
       Did not match:
@@ -10541,7 +10541,7 @@ Negative matches:
 
    JdbcRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.org.cars.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
 
    JdbcTemplateAutoConfiguration:
       Did not match:
@@ -10575,7 +10575,7 @@ Negative matches:
 
    JpaRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.repository.JpaRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.org.cars.repository.JpaRepository' (OnClassCondition)
 
    JsonbAutoConfiguration:
       Did not match:
@@ -10599,7 +10599,7 @@ Negative matches:
 
    LdapRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.repository.LdapRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.org.cars.repository.LdapRepository' (OnClassCondition)
 
    LiquibaseAutoConfiguration:
       Did not match:
@@ -10807,7 +10807,7 @@ Negative matches:
 
    RedisRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.repository.configuration.EnableRedisRepositories' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.org.cars.repository.configuration.EnableRedisRepositories' (OnClassCondition)
 
    RepositoryRestMvcAutoConfiguration:
       Did not match:
@@ -11155,8 +11155,8 @@ Unconditional classes:
 13.07.2023 19:29:25.383 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 19:29:25.388 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration' via constructor to bean named 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 19:29:25.394 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'errorPageCustomizer' via factory method to bean named 'dispatcherServletRegistration'
-13.07.2023 19:29:25.491 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
-13.07.2023 19:29:25.491 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 19:29:25.491 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 19:29:25.491 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
 13.07.2023 19:29:25.491 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
 13.07.2023 19:29:25.513 [main] INFO   o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
 13.07.2023 19:29:25.523 [main] INFO   o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
@@ -11933,7 +11933,7 @@ Negative matches:
 
    ElasticsearchRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.repository.ElasticsearchRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.org.cars.repository.ElasticsearchRepository' (OnClassCondition)
 
    ElasticsearchRestClientAutoConfiguration:
       Did not match:
@@ -12069,7 +12069,7 @@ Negative matches:
 
    JdbcRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.org.cars.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
 
    JdbcTemplateAutoConfiguration:
       Did not match:
@@ -12103,7 +12103,7 @@ Negative matches:
 
    JpaRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.repository.JpaRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.org.cars.repository.JpaRepository' (OnClassCondition)
 
    JsonbAutoConfiguration:
       Did not match:
@@ -12127,7 +12127,7 @@ Negative matches:
 
    LdapRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.repository.LdapRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.org.cars.repository.LdapRepository' (OnClassCondition)
 
    LiquibaseAutoConfiguration:
       Did not match:
@@ -12335,7 +12335,7 @@ Negative matches:
 
    RedisRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.repository.configuration.EnableRedisRepositories' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.org.cars.repository.configuration.EnableRedisRepositories' (OnClassCondition)
 
    RepositoryRestMvcAutoConfiguration:
       Did not match:
@@ -12689,8 +12689,8 @@ Unconditional classes:
 13.07.2023 19:37:04.611 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 19:37:04.616 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration' via constructor to bean named 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 19:37:04.625 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'errorPageCustomizer' via factory method to bean named 'dispatcherServletRegistration'
-13.07.2023 19:37:04.740 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
-13.07.2023 19:37:04.741 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 19:37:04.740 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 19:37:04.741 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
 13.07.2023 19:37:04.742 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
 13.07.2023 19:37:04.766 [main] INFO   o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
 13.07.2023 19:37:04.777 [main] INFO   o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
@@ -13467,7 +13467,7 @@ Negative matches:
 
    ElasticsearchRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.repository.ElasticsearchRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.org.cars.repository.ElasticsearchRepository' (OnClassCondition)
 
    ElasticsearchRestClientAutoConfiguration:
       Did not match:
@@ -13603,7 +13603,7 @@ Negative matches:
 
    JdbcRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.org.cars.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
 
    JdbcTemplateAutoConfiguration:
       Did not match:
@@ -13637,7 +13637,7 @@ Negative matches:
 
    JpaRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.repository.JpaRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.org.cars.repository.JpaRepository' (OnClassCondition)
 
    JsonbAutoConfiguration:
       Did not match:
@@ -13661,7 +13661,7 @@ Negative matches:
 
    LdapRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.repository.LdapRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.org.cars.repository.LdapRepository' (OnClassCondition)
 
    LiquibaseAutoConfiguration:
       Did not match:
@@ -13869,7 +13869,7 @@ Negative matches:
 
    RedisRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.repository.configuration.EnableRedisRepositories' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.org.cars.repository.configuration.EnableRedisRepositories' (OnClassCondition)
 
    RepositoryRestMvcAutoConfiguration:
       Did not match:
@@ -14222,8 +14222,8 @@ Unconditional classes:
 13.07.2023 19:46:14.717 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 19:46:14.721 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration' via constructor to bean named 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 19:46:14.727 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'errorPageCustomizer' via factory method to bean named 'dispatcherServletRegistration'
-13.07.2023 19:46:14.827 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
-13.07.2023 19:46:14.828 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 19:46:14.827 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 19:46:14.828 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
 13.07.2023 19:46:14.828 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
 13.07.2023 19:46:14.855 [main] INFO   o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
 13.07.2023 19:46:14.870 [main] INFO   o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
@@ -15000,7 +15000,7 @@ Negative matches:
 
    ElasticsearchRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.repository.ElasticsearchRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.org.cars.repository.ElasticsearchRepository' (OnClassCondition)
 
    ElasticsearchRestClientAutoConfiguration:
       Did not match:
@@ -15136,7 +15136,7 @@ Negative matches:
 
    JdbcRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.org.cars.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
 
    JdbcTemplateAutoConfiguration:
       Did not match:
@@ -15170,7 +15170,7 @@ Negative matches:
 
    JpaRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.repository.JpaRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.org.cars.repository.JpaRepository' (OnClassCondition)
 
    JsonbAutoConfiguration:
       Did not match:
@@ -15194,7 +15194,7 @@ Negative matches:
 
    LdapRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.repository.LdapRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.org.cars.repository.LdapRepository' (OnClassCondition)
 
    LiquibaseAutoConfiguration:
       Did not match:
@@ -15402,7 +15402,7 @@ Negative matches:
 
    RedisRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.repository.configuration.EnableRedisRepositories' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.org.cars.repository.configuration.EnableRedisRepositories' (OnClassCondition)
 
    RepositoryRestMvcAutoConfiguration:
       Did not match:
@@ -15743,8 +15743,8 @@ Unconditional classes:
 13.07.2023 19:47:41.503 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 19:47:41.516 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration' via constructor to bean named 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 19:47:41.531 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'errorPageCustomizer' via factory method to bean named 'dispatcherServletRegistration'
-13.07.2023 19:47:41.658 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
-13.07.2023 19:47:41.659 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 19:47:41.658 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 19:47:41.659 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
 13.07.2023 19:47:41.661 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
 13.07.2023 19:47:41.697 [main] INFO   o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
 13.07.2023 19:47:41.722 [main] INFO   o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
@@ -16521,7 +16521,7 @@ Negative matches:
 
    ElasticsearchRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.repository.ElasticsearchRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.org.cars.repository.ElasticsearchRepository' (OnClassCondition)
 
    ElasticsearchRestClientAutoConfiguration:
       Did not match:
@@ -16657,7 +16657,7 @@ Negative matches:
 
    JdbcRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.org.cars.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
 
    JdbcTemplateAutoConfiguration:
       Did not match:
@@ -16691,7 +16691,7 @@ Negative matches:
 
    JpaRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.repository.JpaRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.org.cars.repository.JpaRepository' (OnClassCondition)
 
    JsonbAutoConfiguration:
       Did not match:
@@ -16715,7 +16715,7 @@ Negative matches:
 
    LdapRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.repository.LdapRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.org.cars.repository.LdapRepository' (OnClassCondition)
 
    LiquibaseAutoConfiguration:
       Did not match:
@@ -16923,7 +16923,7 @@ Negative matches:
 
    RedisRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.repository.configuration.EnableRedisRepositories' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.org.cars.repository.configuration.EnableRedisRepositories' (OnClassCondition)
 
    RepositoryRestMvcAutoConfiguration:
       Did not match:
@@ -17264,8 +17264,8 @@ Unconditional classes:
 13.07.2023 19:49:09.943 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 19:49:09.950 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration' via constructor to bean named 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 19:49:09.957 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'errorPageCustomizer' via factory method to bean named 'dispatcherServletRegistration'
-13.07.2023 19:49:10.056 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
-13.07.2023 19:49:10.057 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 19:49:10.056 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 19:49:10.057 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/pc01/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
 13.07.2023 19:49:10.057 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
 13.07.2023 19:49:10.080 [main] INFO   o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
 13.07.2023 19:49:10.089 [main] INFO   o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
@@ -18042,7 +18042,7 @@ Negative matches:
 
    ElasticsearchRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.repository.ElasticsearchRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.org.cars.repository.ElasticsearchRepository' (OnClassCondition)
 
    ElasticsearchRestClientAutoConfiguration:
       Did not match:
@@ -18178,7 +18178,7 @@ Negative matches:
 
    JdbcRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.org.cars.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
 
    JdbcTemplateAutoConfiguration:
       Did not match:
@@ -18212,7 +18212,7 @@ Negative matches:
 
    JpaRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.repository.JpaRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.org.cars.repository.JpaRepository' (OnClassCondition)
 
    JsonbAutoConfiguration:
       Did not match:
@@ -18236,7 +18236,7 @@ Negative matches:
 
    LdapRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.repository.LdapRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.org.cars.repository.LdapRepository' (OnClassCondition)
 
    LiquibaseAutoConfiguration:
       Did not match:
@@ -18444,7 +18444,7 @@ Negative matches:
 
    RedisRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.repository.configuration.EnableRedisRepositories' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.org.cars.repository.configuration.EnableRedisRepositories' (OnClassCondition)
 
    RepositoryRestMvcAutoConfiguration:
       Did not match:
@@ -18794,8 +18794,8 @@ Unconditional classes:
 13.07.2023 22:18:54.987 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 22:18:54.994 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration' via constructor to bean named 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 22:18:55.001 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'errorPageCustomizer' via factory method to bean named 'dispatcherServletRegistration'
-13.07.2023 22:18:55.229 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
-13.07.2023 22:18:55.230 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 22:18:55.229 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 22:18:55.230 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
 13.07.2023 22:18:55.231 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
 13.07.2023 22:18:55.302 [main] INFO   o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
 13.07.2023 22:18:55.346 [main] INFO   o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
@@ -19572,7 +19572,7 @@ Negative matches:
 
    ElasticsearchRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.repository.ElasticsearchRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.org.cars.repository.ElasticsearchRepository' (OnClassCondition)
 
    ElasticsearchRestClientAutoConfiguration:
       Did not match:
@@ -19708,7 +19708,7 @@ Negative matches:
 
    JdbcRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.org.cars.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
 
    JdbcTemplateAutoConfiguration:
       Did not match:
@@ -19742,7 +19742,7 @@ Negative matches:
 
    JpaRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.repository.JpaRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.org.cars.repository.JpaRepository' (OnClassCondition)
 
    JsonbAutoConfiguration:
       Did not match:
@@ -19766,7 +19766,7 @@ Negative matches:
 
    LdapRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.repository.LdapRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.org.cars.repository.LdapRepository' (OnClassCondition)
 
    LiquibaseAutoConfiguration:
       Did not match:
@@ -19974,7 +19974,7 @@ Negative matches:
 
    RedisRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.repository.configuration.EnableRedisRepositories' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.org.cars.repository.configuration.EnableRedisRepositories' (OnClassCondition)
 
    RepositoryRestMvcAutoConfiguration:
       Did not match:
@@ -20377,8 +20377,8 @@ java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
 13.07.2023 22:29:17.176 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 22:29:17.182 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration' via constructor to bean named 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 22:29:17.191 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'errorPageCustomizer' via factory method to bean named 'dispatcherServletRegistration'
-13.07.2023 22:29:17.377 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
-13.07.2023 22:29:17.379 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 22:29:17.377 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 22:29:17.379 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
 13.07.2023 22:29:17.382 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
 13.07.2023 22:29:17.430 [main] INFO   o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
 13.07.2023 22:29:17.449 [main] INFO   o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
@@ -21155,7 +21155,7 @@ Negative matches:
 
    ElasticsearchRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.repository.ElasticsearchRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.org.cars.repository.ElasticsearchRepository' (OnClassCondition)
 
    ElasticsearchRestClientAutoConfiguration:
       Did not match:
@@ -21291,7 +21291,7 @@ Negative matches:
 
    JdbcRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.org.cars.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
 
    JdbcTemplateAutoConfiguration:
       Did not match:
@@ -21325,7 +21325,7 @@ Negative matches:
 
    JpaRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.repository.JpaRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.org.cars.repository.JpaRepository' (OnClassCondition)
 
    JsonbAutoConfiguration:
       Did not match:
@@ -21349,7 +21349,7 @@ Negative matches:
 
    LdapRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.repository.LdapRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.org.cars.repository.LdapRepository' (OnClassCondition)
 
    LiquibaseAutoConfiguration:
       Did not match:
@@ -21557,7 +21557,7 @@ Negative matches:
 
    RedisRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.repository.configuration.EnableRedisRepositories' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.org.cars.repository.configuration.EnableRedisRepositories' (OnClassCondition)
 
    RepositoryRestMvcAutoConfiguration:
       Did not match:
@@ -21966,8 +21966,8 @@ java.lang.ArrayIndexOutOfBoundsException: Index 1 out of bounds for length 1
 13.07.2023 22:46:58.025 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Creating shared instance of singleton bean 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 22:46:58.030 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'org.springframework.boot.autoconfigure.web.servlet.MultipartAutoConfiguration' via constructor to bean named 'spring.servlet.multipart-org.springframework.boot.autoconfigure.web.servlet.MultipartProperties'
 13.07.2023 22:46:58.039 [main] DEBUG  o.s.b.f.s.DefaultListableBeanFactory - Autowiring by type from bean name 'errorPageCustomizer' via factory method to bean named 'dispatcherServletRegistration'
-13.07.2023 22:46:58.131 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
-13.07.2023 22:46:58.132 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 22:46:58.131 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
+13.07.2023 22:46:58.132 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - Code archive: /home/andrei/.m2/org.cars.repository/org/springframework/boot/spring-boot/3.1.0/spring-boot-3.1.0.jar
 13.07.2023 22:46:58.133 [main] DEBUG  o.s.b.w.e.t.TomcatServletWebServerFactory - None of the document roots [src/main/webapp, public, static] point to a directory and will be ignored.
 13.07.2023 22:46:58.159 [main] INFO   o.s.b.w.e.t.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
 13.07.2023 22:46:58.170 [main] INFO   o.a.c.h.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8080"]
@@ -22744,7 +22744,7 @@ Negative matches:
 
    ElasticsearchRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.repository.ElasticsearchRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.elasticsearch.org.cars.repository.ElasticsearchRepository' (OnClassCondition)
 
    ElasticsearchRestClientAutoConfiguration:
       Did not match:
@@ -22880,7 +22880,7 @@ Negative matches:
 
    JdbcRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jdbc.org.cars.repository.config.AbstractJdbcConfiguration' (OnClassCondition)
 
    JdbcTemplateAutoConfiguration:
       Did not match:
@@ -22914,7 +22914,7 @@ Negative matches:
 
    JpaRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.repository.JpaRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.jpa.org.cars.repository.JpaRepository' (OnClassCondition)
 
    JsonbAutoConfiguration:
       Did not match:
@@ -22938,7 +22938,7 @@ Negative matches:
 
    LdapRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.repository.LdapRepository' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.ldap.org.cars.repository.LdapRepository' (OnClassCondition)
 
    LiquibaseAutoConfiguration:
       Did not match:
@@ -23146,7 +23146,7 @@ Negative matches:
 
    RedisRepositoriesAutoConfiguration:
       Did not match:
-         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.repository.configuration.EnableRedisRepositories' (OnClassCondition)
+         - @ConditionalOnClass did not find required class 'org.springframework.data.redis.org.cars.repository.configuration.EnableRedisRepositories' (OnClassCondition)
 
    RepositoryRestMvcAutoConfiguration:
       Did not match:
