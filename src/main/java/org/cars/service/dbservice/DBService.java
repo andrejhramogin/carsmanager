@@ -1,8 +1,7 @@
 package org.cars.service.dbservice;
 
-import org.cars.model.Car;
+import org.cars.entity.Car;
 import org.cars.service.dbconnectionservice.DBConnectionService;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.sql.Connection;
 import java.sql.SQLException;

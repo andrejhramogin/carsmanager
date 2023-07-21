@@ -3,7 +3,7 @@ package org.cars.controller;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.cars.model.Car;
+import org.cars.entity.Car;
 import org.cars.service.carservice.CarService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Optional;
 
 @RestController //@Controller + @ResponseBody
 @Tag(name = "Cars API") //активирует Swagger
@@ -34,7 +35,7 @@ public class CarsController {
     @ApiResponse(responseCode = "200", description = "A car was created successfully")
     @ApiResponse(responseCode = "400", description = "Bad request")
     @ApiResponse(responseCode = "500", description = "Internal server error")
-    public org.cars.entity.Car createCar(@RequestBody org.cars.entity.Car car) throws SQLException {
+    public org.cars.entity.Car createCar(@RequestBody Car car) throws SQLException {
         logger.info("create new car: + {}.", car);
         return carService.createNewCar(car);
     }
@@ -86,7 +87,7 @@ public class CarsController {
     @ApiResponse(responseCode = "200", description = "Car from the table 'cars' were received successfully")
     @ApiResponse(responseCode = "400", description = "Bad request")
     @ApiResponse(responseCode = "500", description = "Internal server error")
-    public Car getCarById(@PathVariable int id) throws SQLException {
+    public Optional<Car> getCarById(@PathVariable int id) throws SQLException {
         logger.info("car is shown by id: {}.", id);
         return carService.findCarById(id);
     }

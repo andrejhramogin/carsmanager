@@ -1,18 +1,19 @@
 package org.cars.service.carservice;
 
-import org.cars.model.Car;
+import org.cars.entity.Car;
 import org.cars.service.dbconnectionservice.DBConnectionService;
 import org.cars.service.inoutservice.DBInOutServiceImpl;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
-import org.cars.repository.CarRepository;
+import org.cars.repository.CarJpaRepository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Имплементирует интерфейс CarService
@@ -29,161 +30,34 @@ public class DBCarServiceImpl implements CarService {
     private ResultSet rs;
 
     @Autowired
-    private CarRepository carRepository;
+    private CarJpaRepository carJpaRepository;
 
     public DBCarServiceImpl() throws SQLException {
-    }
-
-    //Сортирует по цене в порядке возрастания
-    @Override
-    public List<Car> sortByPrice() throws SQLException {
-        return dbInOutService.getData("SELECT * FROM cars ORDER BY price");
-    }
-
-    //Сортирует по названию бренда в порядке возрастания
-    @Override
-    public List<Car> sortByBrand() throws SQLException {
-        return dbInOutService.getData("SELECT * FROM cars ORDER BY brand");
-    }
-
-    //Находит максимальную цену
-    @Override
-    public double findMaxPrice() {
-        double max = 0;
-        try {
-            rs = statement.executeQuery("Select max (price) from cars");
-            while (rs.next()) {
-                max = rs.getDouble("max");
-            }
-            dbConnection.closeConnection();
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-        return max;
-    }
-
-    //Находит минимальную цену
-    @Override
-    public double findMinPrice() {
-        double min = 0;
-        try {
-            rs = statement.executeQuery("Select min (price) from cars");
-            while (rs.next()) {
-                min = rs.getDouble("min");
-            }
-            dbConnection.closeConnection();
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-        return min;
-    }
-
-    //Находит все авто с максимальной ценой
-    @Override
-    public List<Car> findCarWithMaxPrice() throws SQLException {
-        return dbInOutService.getData("SELECT * from cars WHERE price = ( select  MAX(price) FROM cars)");
-    }
-
-    //Находит все авто с минимальной ценой
-    @Override
-    public List<Car> findCarWithMinPrice() throws SQLException {
-        return dbInOutService.getData("SELECT * from cars WHERE price = ( select  MIN(price) FROM cars)");
-    }
-
-    //Находит все авто по названию бренда
-    @Override
-    public List<Car> findCarByBrand(String brand) throws SQLException {
-        return dbInOutService.getData("SELECT * FROM cars WHERE lower (brand) = lower ('" + brand + "')");
-    }
-
-    //Находит все авто по названию модели
-    @Override
-    public List<Car> findCarByModel(String model) throws SQLException {
-        return dbInOutService.getData("SELECT * FROM cars WHERE lower (model) = lower ('" + model + "')");
-    }
-
-    //Находит все авто в задаваемом диапазоне цен
-    @Override
-    public List<Car> findCarInPriceDiapason(double min, double max) throws SQLException {
-        return dbInOutService.getData("SELECT * FROM cars WHERE price between " + min + " and " + max + " order by price");
-    }
-
-    //Выводит весь список машин
-    @Override
-    public List<Car> getAllCars() throws SQLException {
-        List<Car> list = new ArrayList<>();
-        rs = statement.executeQuery("SELECT * FROM cars ORDER by id");
-        try {
-            while (rs.next()) {
-                Car car = new Car();
-                car.setId(rs.getInt("id"));
-                car.setBrand(rs.getString("brand"));
-                car.setModel(rs.getString("model"));
-                car.setYear(rs.getInt("year"));
-                car.setPrice(rs.getDouble("price"));
-                list.add(car);
-            }
-            dbConnection.closeConnection();
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-        return list;
     }
 
     //удаление авто по id
     @Override
     public void deleteCarById(int id) throws SQLException {
-//        try {
-//            statement.executeUpdate("DELETE FROM cars WHERE id = " + id);
-//
-//            dbConnection.closeConnection();
-//        } catch (Exception ex) {
-//            System.out.println(ex.getMessage());
-//        }
-//        System.out.println("Строка с номером ID = " + id + " удалена из таблицы");
-        carRepository.deleteById(id);
+        carJpaRepository.deleteById(id);
     }
 
-    //создаёт новое авто в таблице "cars", возвращает его по id, которое возвращается через "RETURNING id".
-    public org.cars.entity.Car createNewCar(org.cars.entity.Car car) throws SQLException {
-        return carRepository.save(car);
+    //создаёт новое авто в таблице "cars" и возвращает его.
+    public Car createNewCar(Car car) {
+        return carJpaRepository.save(car);
     }
 
     //находит в БД и возвращает авто по id.
     @Override
-    public Car findCarById(int id) throws SQLException {
-        Car car = new Car();
-        rs = statement.executeQuery("SELECT * FROM cars WHERE id = " + id);
-        try {
-            while (rs.next()) {
-                car.setId(rs.getInt("id"));
-                car.setBrand(rs.getString("brand"));
-                car.setModel(rs.getString("model"));
-                car.setYear(rs.getInt("year"));
-                car.setPrice(rs.getDouble("price"));
-            }
-            dbConnection.closeConnection();
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-        return car;
+    public Optional<Car> findCarById(int id) {
+        return carJpaRepository.findById(id);
     }
 
     //обновляет поля и возвращает обновленную car
     @Override
     public Car update(Car car, int id) throws SQLException {
-        int idReturn = 0;
-        try {
-            rs = statement.executeQuery(String.format("UPDATE cars SET brand = '%s',  " +
-                            "model = '%s', year = '%d', price = '%f' WHERE id = %d RETURNING id",
-                    car.getBrand(), car.getModel(), car.getYear(), car.getPrice(), id));
-            while (rs.next()) {
-                idReturn = rs.getInt("id");
-            }
-        } catch (Exception ex) {
-            System.out.println(ex.getMessage());
-        }
-        return findCarById(idReturn);
+        Car updatedCar = carJpaRepository.getReferenceById(id);
+        car.setId(updatedCar.getId());
+        return  carJpaRepository.save(car); //? изменяет авто, но не возвращает. Ошибка 500.
     }
 
     //Выводит список машин по задаваемым параметрам (@RequestParam ("sortBy") String sortBy,

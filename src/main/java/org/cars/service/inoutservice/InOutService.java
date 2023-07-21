@@ -1,6 +1,6 @@
 package org.cars.service.inoutservice;
 
-import org.cars.model.Car;
+import org.cars.entity.Car;
 
 import java.io.IOException;
 import java.sql.SQLException;
