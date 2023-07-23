@@ -1,6 +1,6 @@
 package org.cars.service.consoleoutputservice;
 
-import org.cars.model.Car;
+import org.cars.entity.Car;
 import org.cars.service.dbconnectionservice.DBConnectionService;
 
 import java.sql.Connection;

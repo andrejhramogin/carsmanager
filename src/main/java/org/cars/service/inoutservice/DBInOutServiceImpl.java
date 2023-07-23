@@ -1,6 +1,6 @@
 package org.cars.service.inoutservice;
 
-import org.cars.model.Car;
+import org.cars.entity.Car;
 import org.cars.service.dbconnectionservice.DBConnectionService;
 import org.springframework.stereotype.Component;
 
@@ -8,9 +8,9 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-@Component("dBInOutServiceImpl")
+//@Component("dBInOutServiceImpl")
 
-public class DBInOutServiceImpl implements InOutService {
+public class DBInOutServiceImpl  {
     private DBConnectionService dbConnection = DBConnectionService.getInstance();
     private Connection connection = dbConnection.newConnection();
     private Statement statement = connection.createStatement();
@@ -20,7 +20,7 @@ public class DBInOutServiceImpl implements InOutService {
 
 
     //принимает List<Car> и вносит данные в таблицу cars в базе данных
-    @Override
+//    @Override
     public void setData(List<Car> list) {
 
         try {
@@ -36,7 +36,7 @@ public class DBInOutServiceImpl implements InOutService {
     }
 
     //Получает данные из таблицы и возвращает List<Car>
-    @Override
+//    @Override
     public List<Car> getData(String query) throws SQLException {
         List<Car> list = new ArrayList<>();
         ResultSet rs = statement.executeQuery(query);
