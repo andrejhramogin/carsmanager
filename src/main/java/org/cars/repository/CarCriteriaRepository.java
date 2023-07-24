@@ -28,7 +28,7 @@ public class CarCriteriaRepository {
     }
 
     public Page<Car> findAllWithFilters(CarPage carPage,
-                                        CarSearchCriteria carSearchCriteria){
+                                        CarSearchCriteria carSearchCriteria) {
         CriteriaQuery<Car> criteriaQuery = criteriaBuilder.createQuery(Car.class);
         Root<Car> carRoot = criteriaQuery.from(Car.class);
         Predicate predicate = getPredicate(carSearchCriteria, carRoot);
@@ -41,7 +41,7 @@ public class CarCriteriaRepository {
 
         Pageable pageable = getPageable(carPage);
 
-        long carsCount =  getCarsCount(predicate);
+        long carsCount = getCarsCount(predicate);
 
         return new PageImpl<>(typedQuery.getResultList(), pageable, carsCount);
     }
@@ -50,41 +50,41 @@ public class CarCriteriaRepository {
                                    Root<Car> carRoot) {
         List<Predicate> predicates = new ArrayList<>();
 
-        if(Objects.nonNull(carSearchCriteria.getBrand())){
+        if (Objects.nonNull(carSearchCriteria.getBrand())) {
             predicates.add(
                     criteriaBuilder.like(carRoot.get("brand"),
                             "%" + carSearchCriteria.getBrand() + "%")
             );
         }
-        if(Objects.nonNull(carSearchCriteria.getModel())){
+        if (Objects.nonNull(carSearchCriteria.getModel())) {
             predicates.add(
                     criteriaBuilder.like(carRoot.get("model"),
                             "%" + carSearchCriteria.getModel() + "%")
             );
         }
 
-        if(carSearchCriteria.getYear()!=0) {
+        if (carSearchCriteria.getYear() != 0) {
             predicates.add(
-                    criteriaBuilder.like(carRoot.get("year"),
-                            ""+carSearchCriteria.getYear()+"")
+                    criteriaBuilder.equal(carRoot.get("year"),
+                            carSearchCriteria.getYear())
             );
         }
 
-        if(carSearchCriteria.getPrice()!=0) {
+        if (carSearchCriteria.getPrice() != 0) {
             predicates.add(
-                    criteriaBuilder.like(carRoot.get("price"),
-                            "" + carSearchCriteria.getPrice() + "")
+                    criteriaBuilder.equal(carRoot.get("price"),
+                            carSearchCriteria.getPrice())
             );
         }
-        return  criteriaBuilder.and(predicates.toArray(new Predicate[0]));
+        return criteriaBuilder.and(predicates.toArray(new Predicate[0]));
     }
 
     private void setOrder(CarPage carPage,
                           CriteriaQuery<Car> criteriaQuery,
                           Root<Car> carRoot) {
-        if(carPage.getSortDirection().equals(Sort.Direction.ASC)){
+        if (carPage.getSortDirection().equals(Sort.Direction.ASC)) {
             criteriaQuery.orderBy(criteriaBuilder.asc(carRoot.get(carPage.getSortBy())));
-        }else{
+        } else {
             criteriaQuery.orderBy(criteriaBuilder.desc(carRoot.get(carPage.getSortBy())));
         }
     }
@@ -97,7 +97,7 @@ public class CarCriteriaRepository {
     private long getCarsCount(Predicate predicate) {
         CriteriaQuery<Long> countQuery = criteriaBuilder.createQuery(Long.class);
         Root<Car> countRoot = countQuery.from(Car.class);
-        countQuery.select(criteriaBuilder.count(countRoot)).where(predicate);
+        countQuery.select(criteriaBuilder.count(countRoot));
         return entityManager.createQuery(countQuery).getSingleResult();
     }
 }
