@@ -1,6 +1,9 @@
 package org.cars.service.carservice;
 
 import org.cars.entity.Car;
+import org.cars.entity.CarPage;
+import org.cars.entity.CarSearchCriteria;
+import org.springframework.data.domain.Page;
 
 import java.sql.SQLException;
 import java.util.List;
@@ -20,5 +23,7 @@ public interface CarService {
 
     Car update(Car car, int id) throws SQLException;
 
-    List<Car> getByParam(String sortBy, String sortDirection, String filter) throws SQLException;
+    List<Car> findAllCars();
+
+    Page<Car> getCarsWithSortingAndFiltration(CarPage carPage, CarSearchCriteria carSearchCriteria);
 }

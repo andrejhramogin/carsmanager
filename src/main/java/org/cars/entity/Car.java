@@ -7,8 +7,6 @@ import jakarta.persistence.*;
 @Table(name = "cars")
 public class Car {
 
-    public Car(){}//?
-
     @Id
     @Column(name = "id", insertable = false)
     @GeneratedValue (strategy = GenerationType.IDENTITY)
@@ -16,31 +14,40 @@ public class Car {
             example = "1")
     private Integer id;
 
-    @Column(name  = "brand", nullable = false)
+//    @Column(name  = "brand", nullable = false)
     @Schema(description = "Наименование бренда автомобиля",
             example = "Toyota")
     private String brand;
 
-    @Column(name  = "model", nullable = false)
+//    @Column(name  = "model", nullable = false)
     @Schema(description = "Наименование моделиавтомобиля",
             example = "Camry")
     private String model;
 
-    @Column(name  = "year", nullable = false)
+//    @Column(name  = "year", nullable = false)
     @Schema(description = "год выпуска автомобиля",
             example = "2023")
     private Integer year;
 
-    @Column(name  = "price", nullable = false)
+//    @Column(name  = "price", nullable = false)
     @Schema(description = "стоимость автомобиля",
             example = "10000.50")
     private Double price;
+
+    public Car(){}//?
+
+    public Car( String brand, String model, Integer year, Double price) {
+        this.brand = brand;
+        this.model = model;
+        this.year = year;
+        this.price = price;
+    }
 
     public Integer getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id){
         this.id = id;
     }
 
