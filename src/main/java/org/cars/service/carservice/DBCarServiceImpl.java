@@ -68,10 +68,4 @@ public class DBCarServiceImpl implements CarService {
         car.setId(updatedCar.getId());
         return carJpaRepository.save(car); //? изменяет авто, но не возвращает. Ошибка 500.
     }
-
-    //возвращает все cars из БД
-    @Override
-    public List<Car> findAllCars() {
-        return carJpaRepository.findAll();
-    }
 }

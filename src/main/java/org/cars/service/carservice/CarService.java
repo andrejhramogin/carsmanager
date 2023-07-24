@@ -23,7 +23,5 @@ public interface CarService {
 
     Car update(Car car, int id) throws SQLException;
 
-    List<Car> findAllCars();
-
     Page<Car> getCarsWithSortingAndFiltration(CarPage carPage, CarSearchCriteria carSearchCriteria);
 }

@@ -39,6 +39,8 @@ public class CarsController {
     @ApiResponse(responseCode = "200", description = "A car was created successfully")
     @ApiResponse(responseCode = "400", description = "Bad request")
     @ApiResponse(responseCode = "500", description = "Internal server error")
+
+
     public org.cars.entity.Car createCar(@RequestBody Car car) throws SQLException {
         logger.info("create new car: + {}.", car);
         return carService.createNewCar(car);
@@ -71,16 +73,6 @@ public class CarsController {
     @ApiResponse(responseCode = "200", description = "Cars from the table 'cars' were received successfully")
     @ApiResponse(responseCode = "400", description = "Bad request")
     @ApiResponse(responseCode = "500", description = "Internal server error")
-
-//    public List<Car> getCarsByRequestParam(
-//            @RequestParam("sortBy") String sortBy,
-//            @RequestParam("sortDirection") String sortDirection,
-//            @RequestParam("filter") String filter)
-//            throws SQLException {
-//        if (!Objects.equals(sortBy, "") && !Objects.equals(sortDirection, "") && !Objects.equals(filter, ""))
-//            return carService.getByParam(sortBy, sortDirection, filter);
-//        else return carService.findAllCars();
-//    }
 
     public ResponseEntity<Page<Car>> getCars(CarPage carPage,
                                              CarSearchCriteria carSearchCriteria){
