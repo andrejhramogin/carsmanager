@@ -4,14 +4,18 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.cars.entity.Car;
+import org.cars.entity.CarPage;
+import org.cars.entity.CarSearchCriteria;
 import org.cars.service.carservice.CarService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
-import java.util.List;
 import java.util.Optional;
 
 @RestController //@Controller + @ResponseBody
@@ -67,13 +71,20 @@ public class CarsController {
     @ApiResponse(responseCode = "200", description = "Cars from the table 'cars' were received successfully")
     @ApiResponse(responseCode = "400", description = "Bad request")
     @ApiResponse(responseCode = "500", description = "Internal server error")
-    public List<Car> getCarsByRequestParam(
-            @RequestParam("sortBy") String sortBy,
-            @RequestParam("sortDirection") String sortDirection,
-            @RequestParam("filter") String filter)
-            throws SQLException {
-        logger.info("Сars matching the request have been received.");
-        return carService.getByParam(sortBy, sortDirection, filter);
+
+//    public List<Car> getCarsByRequestParam(
+//            @RequestParam("sortBy") String sortBy,
+//            @RequestParam("sortDirection") String sortDirection,
+//            @RequestParam("filter") String filter)
+//            throws SQLException {
+//        if (!Objects.equals(sortBy, "") && !Objects.equals(sortDirection, "") && !Objects.equals(filter, ""))
+//            return carService.getByParam(sortBy, sortDirection, filter);
+//        else return carService.findAllCars();
+//    }
+
+    public ResponseEntity<Page<Car>> getCars(CarPage carPage,
+                                             CarSearchCriteria carSearchCriteria){
+        return new ResponseEntity<>(carService.getCarsWithSortingAndFiltration(carPage, carSearchCriteria), HttpStatus.OK);
     }
 
     /**
