@@ -6,8 +6,6 @@ import org.cars.entity.CarSearchCriteria;
 import org.springframework.data.domain.Page;
 
 import java.sql.SQLException;
-import java.util.List;
-import java.util.Optional;
 
 /**
  * Интерфейс определяет методы для работы с данными автомобилей из БД.
@@ -19,7 +17,7 @@ public interface CarService {
 
     org.cars.entity.Car createNewCar(org.cars.entity.Car car) throws SQLException;
 
-    Optional<Car> findCarById(int id) throws SQLException;
+    Car findCarById(int id) throws SQLException;
 
     Car update(Car car, int id) throws SQLException;
 

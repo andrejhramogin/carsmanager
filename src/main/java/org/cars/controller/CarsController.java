@@ -6,6 +6,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.cars.entity.Car;
 import org.cars.entity.CarPage;
 import org.cars.entity.CarSearchCriteria;
+import org.cars.error.AppError;
 import org.cars.service.carservice.CarService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -16,7 +17,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.sql.SQLException;
-import java.util.Optional;
 
 @RestController //@Controller + @ResponseBody
 @Tag(name = "Cars API") //активирует Swagger
@@ -31,8 +31,8 @@ public class CarsController {
     /**
      * Создание нового car в БД и возвращение его в ответе.
      *
-     * @param car - передается для помещения его в БД.
      * @return Ответ - новый созданный car в БД, полученный из БД.
+     * @RequestBody car - передается для помещения его в БД.
      */
     @PostMapping("/cars")
     @Operation(summary = "Create a new car in DB", description = "Creates a new car in DB and returns it")
@@ -40,10 +40,14 @@ public class CarsController {
     @ApiResponse(responseCode = "400", description = "Bad request")
     @ApiResponse(responseCode = "500", description = "Internal server error")
 
-
-    public org.cars.entity.Car createCar(@RequestBody Car car) throws SQLException {
-        logger.info("create new car: + {}.", car);
-        return carService.createNewCar(car);
+    //Новый car создает и возвращает
+    // Если car == null, не выводит message об ошибке
+    public ResponseEntity<?> createCar(@RequestBody Car car) throws SQLException {
+        if (car == null) {
+            return new ResponseEntity<>(new AppError(HttpStatus.BAD_REQUEST.value(),
+                    "Invalid request body (car = null object)."), HttpStatus.BAD_REQUEST);
+        }
+        return ResponseEntity.ok(carService.createNewCar(car));
     }
 
     /**
@@ -75,7 +79,7 @@ public class CarsController {
     @ApiResponse(responseCode = "500", description = "Internal server error")
 
     public ResponseEntity<Page<Car>> getCars(CarPage carPage,
-                                             CarSearchCriteria carSearchCriteria){
+                                             CarSearchCriteria carSearchCriteria) {
         return new ResponseEntity<>(carService.getCarsWithSortingAndFiltration(carPage, carSearchCriteria), HttpStatus.OK);
     }
 
@@ -90,10 +94,23 @@ public class CarsController {
     @ApiResponse(responseCode = "200", description = "Car from the table 'cars' were received successfully")
     @ApiResponse(responseCode = "400", description = "Bad request")
     @ApiResponse(responseCode = "500", description = "Internal server error")
-    public Optional<Car> getCarById(@PathVariable int id) throws SQLException {
-        logger.info("car is shown by id: {}.", id);
+
+    //Отрабатывает правильно через обработчик ошибок
+    public Car getCar(@PathVariable int id) throws SQLException {
         return carService.findCarById(id);
     }
+
+//    отрабатывает правильно
+//
+//    public ResponseEntity<?> getCar(@PathVariable int id) {
+//        try {
+//            Car car = carService.findCarById(id);
+//            return new ResponseEntity<>(car, HttpStatus.OK);
+//        } catch (Exception e) {
+//            return new ResponseEntity<>(new AppError(HttpStatus.NOT_FOUND.value(),
+//                    "Car with id " + id + " not found"), HttpStatus.NOT_FOUND);
+//        }
+//    }
 
     /**
      * Удаление car из БД по значению id.
