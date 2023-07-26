@@ -3,6 +3,7 @@ package org.cars.service.carservice;
 import org.cars.entity.Car;
 import org.cars.entity.CarPage;
 import org.cars.entity.CarSearchCriteria;
+import org.cars.error.ResourceNotFoundException;
 import org.cars.repository.CarCriteriaRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -57,8 +58,10 @@ public class DBCarServiceImpl implements CarService {
 
     //находит в БД и возвращает авто по id.
     @Override
-    public Optional<Car> findCarById(int id) {
-        return carJpaRepository.findById(id);
+    public Car findCarById(int id) {
+        return carJpaRepository.findById(id).orElseThrow(
+                ()-> new ResourceNotFoundException("Car with id " + id + " not found")
+        );
     }
 
     //обновляет поля и возвращает обновленную car

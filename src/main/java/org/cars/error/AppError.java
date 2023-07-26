@@ -1,4 +1,4 @@
-package org.cars.app_error;
+package org.cars.error;
 
 public class AppError {
 

@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
 @ControllerAdvice
-public class GlobalExceptionHandler {
+public class AppExceptionHandler {
     private static final Logger logger = LoggerFactory.getLogger(CarsController.class);
 
     @ExceptionHandler
