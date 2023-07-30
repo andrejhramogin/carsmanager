@@ -3,7 +3,7 @@ package org.cars.service.carservice;
 import org.cars.entity.Car;
 import org.cars.entity.CarPage;
 import org.cars.entity.CarSearchCriteria;
-import org.cars.error.ResourceNotFoundException;
+import org.cars.exception.ResourceNotFoundException;
 import org.cars.repository.CarCriteriaRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,8 +13,6 @@ import org.springframework.stereotype.Component;
 import org.cars.repository.CarJpaRepository;
 
 import java.sql.*;
-import java.util.List;
-import java.util.Optional;
 
 /**
  * Имплементирует интерфейс CarService

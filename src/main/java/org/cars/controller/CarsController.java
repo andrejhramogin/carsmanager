@@ -6,7 +6,7 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import org.cars.entity.Car;
 import org.cars.entity.CarPage;
 import org.cars.entity.CarSearchCriteria;
-import org.cars.error.AppError;
+import org.cars.exception.AppError;
 import org.cars.service.carservice.CarService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

@@ -1,4 +1,4 @@
-package org.cars.error;
+package org.cars.exception;
 
 import org.cars.controller.CarsController;
 import org.slf4j.Logger;

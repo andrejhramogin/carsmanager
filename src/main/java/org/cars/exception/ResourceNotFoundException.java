@@ -1,4 +1,4 @@
-package org.cars.error;
+package org.cars.exception;
 
 public class ResourceNotFoundException extends RuntimeException{
 
