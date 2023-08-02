@@ -9,7 +9,6 @@ import org.mapstruct.Mapping;
 @Mapper(componentModel = "spring")
 public interface CarMapper {
 
-    @Mapping(target = "id", source = "carRq.id")
     @Mapping(target = "brand", source = "carRq.brand")
     @Mapping(target = "model", source = "carRq.model")
     @Mapping(target = "year", source = "carRq.year")

@@ -1,19 +1,19 @@
 package org.cars.service;
 
-import org.cars.dto.request.CreateCarRq;
-import org.cars.exception.ResourceNotFoundException;
 import org.cars.dto.CarDto;
+import org.cars.dto.request.CreateCarRq;
 import org.cars.entity.Car;
 import org.cars.entity.CarPage;
 import org.cars.entity.CarSearchCriteria;
-import org.cars.mapper.CarMapperImpl;
+import org.cars.exception.ResourceNotFoundException;
+import org.cars.mapper.CarMapper;
 import org.cars.repository.CarCriteriaRepository;
+import org.cars.repository.CarJpaRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
-import org.cars.repository.CarJpaRepository;
 
 /**
  * Имплементирует интерфейс CarService
@@ -29,7 +29,7 @@ public class DBCarServiceImpl implements CarService {
     @Autowired
     private CarCriteriaRepository carCriteriaRepository;
     @Autowired
-    private CarMapperImpl mapper;
+    private CarMapper mapper;
 
     public DBCarServiceImpl(CarJpaRepository carJpaRepository,
                             CarCriteriaRepository carCriteriaRepository) {
